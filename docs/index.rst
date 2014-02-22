@@ -18,5 +18,12 @@ What is not covered
 * Installing each individual component is in that components repository.
 * APIs for each individual component is in that components repository.
 
+These docs are also available as `PDF`_.
+
 .. toctree::
    :maxdepth: 2
+
+   topics/setup.rst
+   topics/payments.rst
+
+.. _`PDF`: https://media.readthedocs.org/pdf/zippypayments/latest/zippypayments.pdf
