@@ -4,6 +4,15 @@ Firefox Marketplace documentation
 This documentation covers the Firefox Marketplace. It provides overall
 documentation for the Marketplace.
 
+Contents
+--------
+
+.. toctree::
+   :maxdepth: 2
+
+   topics/setup.rst
+   topics/payments.rst
+
 What is covered
 ---------------
 
@@ -20,10 +29,5 @@ What is not covered
 
 These docs are also available as a `PDF`_.
 
-.. toctree::
-   :maxdepth: 2
-
-   topics/setup.rst
-   topics/payments.rst
 
 .. _`PDF`: https://media.readthedocs.org/pdf/marketplace/latest/marketplace.pdf
