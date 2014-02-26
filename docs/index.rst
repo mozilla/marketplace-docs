@@ -1,8 +1,10 @@
 Firefox Marketplace documentation
 =======================================
 
-This documentation covers the Firefox Marketplace. It provides overall
+This documentation covers the `Firefox Marketplace`_. It provides overall
 documentation for the Marketplace.
+
+.. _`Firefox Marketplace`: https://marketplace.firefox.com/
 
 Contents
 --------
