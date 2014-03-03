@@ -32,6 +32,9 @@ Services
 * Rocketfuel: curation tools for the Marketplace. Written in Javascript and
   Commonplace: https://github.com/mozilla/rocketfuel/
 
+* Trunion: a signing service for app receipts and packaged apps. Written in
+  Python and Pyramid: https://github.com/mozilla/trunion/
+
 There are other repositories and libraries that are these are dependent upon,
 but these are the high level areas.
 
