@@ -13,6 +13,7 @@ Contents
    :maxdepth: 2
 
    topics/setup.rst
+   topics/consumer.rst
    topics/payments.rst
 
 What is covered
