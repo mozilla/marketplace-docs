@@ -15,6 +15,7 @@ Contents
    topics/setup.rst
    topics/consumer.rst
    topics/payments.rst
+   topics/package.rst
 
 What is covered
 ---------------
