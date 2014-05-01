@@ -99,8 +99,8 @@ These directions assume you have forked `gaia <https://github.com/mozilla-b2g/ga
    in the title of the bug.  For example: *Bug 100000 - New Marketplace; 20140501*
 
 10) Return to the bug you filed in step 1.  Click *Add Attachment* -> *Paste
-   text as attachment* and paste in your pull request URL (eg.
-   *https://github.com/mozilla-b2g/gaia/pull/18845*).  Under flags request
-   *review?* from *:julienw* or *:fabrice*
+    text as attachment* and paste in your pull request URL (eg.
+    *https://github.com/mozilla-b2g/gaia/pull/18845*).  Under flags request
+    *review?* from *:julienw* or *:fabrice*
 
 11) Done!
