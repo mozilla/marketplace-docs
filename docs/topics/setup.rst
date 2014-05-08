@@ -7,33 +7,36 @@ be assembled together to form the Marketplace.
 Services
 --------
 
-* Zamboni: the main backend for the Marketplace, written in Python using
-  Django. Available at: https://github.com/mozilla/zamboni
+* **Zamboni**: the main backend for the Marketplace, also serves developer
+  reviewer and admin tools. Written in Python using
+  Django - `source <https://github.com/mozilla/zamboni>`_, `documentation
+  <https://zamboni.readthedocs.org>`_.
 
-* Fireplace: the consumer front end for the Marketplace, written as a browser
-  app in Javascript using Commonplace and Nunjucks. Available at:
-  https://github.com/mozilla/fireplace
+* **Fireplace**: the consumer front end for the Marketplace, written as a browser
+  app in Javascript using Commonplace and Nunjucks - `source <https://github.com/mozilla/fireplace>`_
 
-* Monolith: storage and query server for statistics around the Marketplace.
-  Has a client: https://github.com/mozilla/monolith-client and an aggregator:
-  https://github.com/mozilla/monolith-aggregator/, both written in Python.
+* **Monolith**: storage and query server for statistics around the Marketplace,
+  written in Python - `source <https://github.com/mozilla/monolith-client>`_,
+  aggregator `source <https://github.com/mozilla/monolith-aggregator/>`_
 
-* Marketplace stats: is the front end for monolith to display the stats on to
-  the end users. Written as a browser app in Javascript using Commonplace.
-  Available at: https://github.com/mozilla/marketplace-stats/
+* **Marketplace stats**: is the front end for monolith to display the stats on to
+  the end users. Written as a browser app in Javascript using Commonplace
+  - `source <https://github.com/mozilla/marketplace-stats/>`_
 
-* Webpay and Solitude: servers for processing payments for the Marketplace.
-  Written in Python and Django: https://github.com/mozilla/solitude/ and
-  https://github.com/mozilla/webpay/
+* **Webpay** and **Solitude**: servers for processing payments for the Marketplace.
+  Written in Python and Django - `webpay source <https://github.com/mozilla/solitude/>`_,
+  `webpay docs <https://webpay.readthedocs.org>`_, `solitude source
+  <https://github.com/mozilla/webpay/>`_, `solitude docs
+  <https://solitdue.readthedocs.org>`_
 
-* Zippy: a fake backend for payments so to fake out carrier billing. Written
-  in Javascript and Node JS: https://github.com/mozilla/zippy
+* **Zippy**: a fake backend for payments so to fake out carrier billing. Written
+  in Javascript and Node JS - `source <https://github.com/mozilla/zippy>`_
 
-* Rocketfuel: curation tools for the Marketplace. Written in Javascript and
-  Commonplace: https://github.com/mozilla/rocketfuel/
+* **Rocketfuel**: curation tools for the Marketplace. Written in Javascript and
+  Commonplace - `source <https://github.com/mozilla/rocketfuel/>`_
 
-* Trunion: a signing service for app receipts and packaged apps. Written in
-  Python and Pyramid: https://github.com/mozilla/trunion/
+* **Trunion**: a signing service for app receipts and packaged apps. Written in
+  Python and Pyramid - `source <https://github.com/mozilla/trunion/>`_
 
 There are other repositories and libraries that are these are dependent upon,
 but these are the high level areas.
