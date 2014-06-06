@@ -52,8 +52,44 @@ you want to work on that area. For example: setting up monolith and marketplace
 stats would be needed if you wanted to work on stats. But many developers will
 likely not bother.
 
+Environment Variables
+---------------------
+
+To configure the services in the marketplace, you can either override each
+projects settings file (see documentation on each project for how that would
+look). Or you can alter a few environment variables that all the projects use.
+This is the **recommended approach** for setting up the marketplace until you
+feel more comfortable with the settings in the marketplace.
+
+This documentation assumes that you know how to set environment variables on
+your development platform.
+
++----------------------+--------------------+----------------------------+--------------------------------------+
++ Environment variable | Used by            | Description                | Example                              |
++======================+====================+============================+======================================+
+| MARKETPLACE_URL      | ngnix, Webpay      | URL to nginx               | http://localhost/                    |
++----------------------+--------------------+----------------------------+--------------------------------------+
+| MEMCACHE_URL         | Zamboni, Webpay,   | The location of memcache   | localhost:11211                      |
+|                      | Solitude           |                            |                                      |
++----------------------+--------------------+----------------------------+--------------------------------------+
+| SOLITUDE_DATABASE    | Solitude           | dj_database_url compliant  | mysql://root@localhost:3306/solitude |
+|                      |                    | URL to solitude Mysql      |                                      |
++----------------------+--------------------+----------------------------+--------------------------------------+
+| SOLITUDE_URL         | Zamboni, Webpay,   | URL to solitude instance   | http://localhost:9000                |
+|                      | nginx              |                            |                                      |
++----------------------+--------------------+----------------------------+--------------------------------------+
+| WEBPAY_URL           | nginx              | URL to webpay instance     | http://localhost:9001                |
++----------------------+--------------------+----------------------------+--------------------------------------+
+| ZAMBONI_DATABASE     | Zamboni            | dj_database_url compliant  | mysql://root@localhost:3306/zamboni  |
+|                      |                    | URL to zamboni Mysql       |                                      |
++----------------------+--------------------+----------------------------+--------------------------------------+
+
 Serving
 -------
+
+Marketplace is designed to be an app accessible at one domain, hitting nginx.
+
+Behind the scenes nginx will proxy to the other servers on your behalf.
 
 Most developers are using nginx to serve out the multiple services. Your
 configuration will look something like this:
