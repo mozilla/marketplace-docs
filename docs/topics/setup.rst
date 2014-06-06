@@ -56,7 +56,7 @@ Environment Variables
 ---------------------
 
 To configure the services in the marketplace, you can either override each
-projects settings file (see documentation on each project for how that would
+project's settings file (see documentation on each project for how that would
 look). Or you can alter a few environment variables that all the projects use.
 This is the **recommended approach** for setting up the marketplace until you
 feel more comfortable with the settings in the marketplace.
@@ -67,7 +67,7 @@ your development platform.
 +----------------------+--------------------+----------------------------+--------------------------------------+
 + Environment variable | Used by            | Description                | Example                              |
 +======================+====================+============================+======================================+
-| MARKETPLACE_URL      | ngnix, Webpay      | URL to nginx               | http://localhost/                    |
+| MARKETPLACE_URL      | Webpay             | URL to nginx               | http://localhost/                    |
 +----------------------+--------------------+----------------------------+--------------------------------------+
 | MEMCACHE_URL         | Zamboni, Webpay,   | The location of memcache   | localhost:11211                      |
 |                      | Solitude           |                            |                                      |
@@ -75,14 +75,35 @@ your development platform.
 | SOLITUDE_DATABASE    | Solitude           | dj_database_url compliant  | mysql://root@localhost:3306/solitude |
 |                      |                    | URL to solitude Mysql      |                                      |
 +----------------------+--------------------+----------------------------+--------------------------------------+
-| SOLITUDE_URL         | Zamboni, Webpay,   | URL to solitude instance   | http://localhost:9000                |
-|                      | nginx              |                            |                                      |
-+----------------------+--------------------+----------------------------+--------------------------------------+
-| WEBPAY_URL           | nginx              | URL to webpay instance     | http://localhost:9001                |
+| SOLITUDE_URL         | Zamboni, Webpay    | URL to solitude instance   | http://localhost:2602                |
 +----------------------+--------------------+----------------------------+--------------------------------------+
 | ZAMBONI_DATABASE     | Zamboni            | dj_database_url compliant  | mysql://root@localhost:3306/zamboni  |
 |                      |                    | URL to zamboni Mysql       |                                      |
 +----------------------+--------------------+----------------------------+--------------------------------------+
+
+Default ports
+-------------
+
+By default the projects listen to the following ports:
+
++---------------------+--------+
+| Project             | Port   |
++=====================+========+
+| Zamboni             | 2600   |
++---------------------+--------+
+| Webpay              | 2601   |
++---------------------+--------+
+| Solitude            | 2602   |
++---------------------+--------+
+| Solitude Proxy [1]_ | 2603   |
++---------------------+--------+
+| Spartacus           | 7777   |
++---------------------+--------+
+| Fireplace           | 8675   |
++---------------------+--------+
+
+.. [1] Solitude Proxy is not normally run by developers, but is given a port
+  for completeness
 
 Serving
 -------
@@ -103,6 +124,6 @@ Installation (on OS X)::
 
   brew install nginx
 
-Configuration
+Configuration:
 
-*TODO*
+.. literalinclude:: ../config/nginx.conf
