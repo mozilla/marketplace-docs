@@ -36,7 +36,7 @@ These directions assume you have the site permissions (meaning: you own the app
 in the Marketplace) to do this and you want to put it on production.  Adjust the
 URL below if you want to put it on dev or stage.
 
-1) `Edit the app on the Marketplace <https://marketplace.firefox.com/developers/app/marketplace-package/status#upload-new-version>`_
+1) `Edit the app on the Marketplace <https://marketplace.firefox.com/developers/app/marketplace/status#upload-new-version>`_
 2) Upload the newly made package
 3) Make sure that *Multiple Network Information* and *Network Information* are
    checked
@@ -47,7 +47,7 @@ Approve the New Package on the Marketplace
 
 These directions assume you have the reviewer permissions to do this.
 
-1) `Load the app in the Reviewer Tools <https://marketplace.firefox.com/reviewers/apps/review/marketplace-package#review-actions>`_
+1) `Load the app in the Reviewer Tools <https://marketplace.firefox.com/reviewers/apps/review/marketplace#review-actions>`_
 2) Click *Push to Public*
 3) Enter a short message in *comments* and click **OK**
 
