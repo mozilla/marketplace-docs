@@ -65,7 +65,7 @@ This documentation assumes that you know how to set environment variables on
 your development platform.
 
 +----------------------+--------------------+----------------------------+--------------------------------------+
-+ Environment variable | Used by            | Description                | Example                              |
++ Environment variable | Used by            | Description                | Default                              |
 +======================+====================+============================+======================================+
 | MARKETPLACE_URL      | Webpay             | URL to nginx               | http://localhost/                    |
 +----------------------+--------------------+----------------------------+--------------------------------------+
@@ -80,6 +80,15 @@ your development platform.
 | ZAMBONI_DATABASE     | Zamboni            | dj_database_url compliant  | mysql://root@localhost:3306/zamboni  |
 |                      |                    | URL to zamboni Mysql       |                                      |
 +----------------------+--------------------+----------------------------+--------------------------------------+
+
+Other environment variables
+---------------------------
+
+Please be aware that other parts of the site infrastructure can be affected by
+environment variables. Some examples:
+
+* If you want to use custom Django settings, you can set
+  `DJANGO_SETTINGS_MODULE <https://docs.djangoproject.com/en/dev/topics/settings/#designating-the-settings>`_
 
 Default ports
 -------------
