@@ -13,14 +13,14 @@ Services
   <https://zamboni.readthedocs.org>`_.
 
 * **Fireplace**: the consumer front end for the Marketplace, written as a browser
-  app in Javascript using Commonplace and Nunjucks - `source <https://github.com/mozilla/fireplace>`_
+  app in JavaScript using Commonplace and Nunjucks - `source <https://github.com/mozilla/fireplace>`_
 
 * **Monolith**: storage and query server for statistics around the Marketplace,
   written in Python - `source <https://github.com/mozilla/monolith-client>`_,
   aggregator `source <https://github.com/mozilla/monolith-aggregator/>`_
 
 * **Marketplace stats**: is the front end for monolith to display the stats on to
-  the end users. Written as a browser app in Javascript using Commonplace
+  the end users. Written as a browser app in JavaScript using Commonplace
   - `source <https://github.com/mozilla/marketplace-stats/>`_
 
 * **Webpay** and **Solitude**: servers for processing payments for the Marketplace.
@@ -29,10 +29,12 @@ Services
   <https://github.com/mozilla/webpay/>`_, `solitude docs
   <https://solitdue.readthedocs.org>`_
 
-* **Zippy**: a fake backend for payments so to fake out carrier billing. Written
-  in Javascript and Node JS - `source <https://github.com/mozilla/zippy>`_
+* **Spartacus**: the front end for webpay. Written in Javascript - `source <https://github.com/mozilla/spartacus>`_
 
-* **Rocketfuel**: curation tools for the Marketplace. Written in Javascript and
+* **Zippy**: a fake backend for payments so to fake out carrier billing. Written
+  in JavaScript and Node JS - `source <https://github.com/mozilla/zippy>`_
+
+* **Rocketfuel**: curation tools for the Marketplace. Written in JavaScript and
   Commonplace - `source <https://github.com/mozilla/rocketfuel/>`_
 
 * **Trunion**: a signing service for app receipts and packaged apps. Written in
