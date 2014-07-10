@@ -16,6 +16,7 @@ Contents
    topics/consumer.rst
    topics/payments.rst
    topics/package.rst
+   topics/production.rst
 
 What is covered
 ---------------
