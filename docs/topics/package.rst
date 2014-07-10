@@ -25,9 +25,12 @@ fireplace checkout::
 For stage or dev servers you could also run either of these::
 
     make package_dev
+    make package_altdev
     make package_stage
 
-This will create a package in /package/archives/
+This will create a package in `/package/archives/`. These names correspond to
+the :ref:`Marketplace servers <marketeplace-servers-label>`. You can then test
+the package in the Simulator using the `App Manager <https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager>`_.
 
 Put the New Package on the Marketplace
 --------------------------------------
