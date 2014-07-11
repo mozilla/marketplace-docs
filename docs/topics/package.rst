@@ -22,7 +22,7 @@ fireplace checkout::
 
     make package
 
-For stage or dev servers you could also run either of these::
+For stage or dev servers you could also run any of these::
 
     make package_dev
     make package_altdev
