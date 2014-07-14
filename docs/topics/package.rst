@@ -28,6 +28,12 @@ For stage or dev servers you could also run any of these::
     make package_altdev
     make package_stage
 
+If you are running a local server at something like
+``http://fireplace.loc``, you could build a custom package using
+environment variables::
+
+    SERVER='local' NAME='Local' DOMAIN='fireplace.loc' make package
+
 This will create a package in `/package/archives/`. These names correspond to
 the :ref:`Marketplace servers <marketplace-servers-label>`. You can then test
 the package in the Simulator using the `App Manager <https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager>`_.
