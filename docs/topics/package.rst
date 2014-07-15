@@ -30,12 +30,19 @@ For stage or dev servers you could also run any of these::
 
 If you are running a local server at something like
 ``http://fireplace.loc``, you could build a custom package using
-environment variables::
+environment variables. The ``SERVER`` variable will be used to load
+the right settings file so if you set it to ``local``, first make some
+settings::
+
+    cp hearth/media/js/settings_local.js.dist hearth/media/js/settings_local.js
+
+Edit the settings to make sure the API URL is correct. Now create your package::
 
     SERVER='local' NAME='Local' DOMAIN='fireplace.loc' make package
 
-This will create a package in `/package/archives/`. These names correspond to
-the :ref:`Marketplace servers <marketplace-servers-label>`. You can then test
+All of these commands will create packages in `/package/archives/`. The package names
+correspond to the :ref:`Marketplace servers <marketplace-servers-label>`
+or the ``SERVER`` variable. You can then test
 the package in the Simulator using the `App Manager <https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager>`_.
 
 Put the New Package on the Marketplace
