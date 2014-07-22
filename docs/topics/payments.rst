@@ -198,11 +198,11 @@ Add this to activate the hosted stage server::
     pref("dom.payment.provider.2.type", "mozilla-stage/payments/pay/v1");
     pref("dom.payment.provider.2.requestMethod", "GET");
 
-Add this to activate a local server::
+Add this to activate a local server (make sure the URL is correct for you)::
 
     pref("dom.payment.provider.3.name", "firefoxmarketlocal");
     pref("dom.payment.provider.3.description", "localhost");
-    pref("dom.payment.provider.3.uri", "http://localhost:8000/mozpay/?req=");
+    pref("dom.payment.provider.3.uri", "http://localhost:2601/mozpay/?req=");
     pref("dom.payment.provider.3.type", "mozilla-local/payments/pay/v1");
     pref("dom.payment.provider.3.requestMethod", "GET");
 
