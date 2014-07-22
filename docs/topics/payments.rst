@@ -206,6 +206,14 @@ Add this to activate a local server::
     pref("dom.payment.provider.3.type", "mozilla-local/payments/pay/v1");
     pref("dom.payment.provider.3.requestMethod", "GET");
 
+Add this to activate the payments-alt server::
+
+    pref("dom.payment.provider.4.name", "firefoxmarketalt");
+    pref("dom.payment.provider.4.description", "payments-alt.allizom.org");
+    pref("dom.payment.provider.4.uri", "https://payments-alt.allizom.org/mozpay/?req=");
+    pref("dom.payment.provider.4.type", "mozilla-alt/payments/pay/v1");
+    pref("dom.payment.provider.4.requestMethod", "GET");
+
 Save the file.
 Now when you make a profile it will create a ``profile/user.js``
 file with those extra prefs. Type this in the ``gaia`` directory::
