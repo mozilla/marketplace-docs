@@ -6,9 +6,9 @@ This section is about processing payments on the Marketplace.
 Setup
 -----
 
-To develop payments locally we would recommend that you install Webpay,
-Solitude and Zippy. This will give you a complete end to end flow of how
-payments would work but you will be missing:
+To develop payments locally we would recommend that you install `Webpay`_,
+`Solitude`_, `Zippy`_ and `Spartacus`_. This will give you a complete end to end flow
+of how payments would work but you will be missing:
 
 * actual carrier or credit card charges
 
@@ -17,15 +17,14 @@ payments would work but you will be missing:
 If you want that then you'll need to set up integration with a real payment
 provider, such as Bango. That is discussed in the solitude docs.
 
-The following *assumes* that you have a successfully working Webpay, Solitude,
-Zippy and Zamboni installed. This document discusses how you need to configure
-them all to interact.
+The following *assumes* that you have a successfully working Spartacus, Webpay,
+Solitude, Zippy and Zamboni installed. This document discusses how you need to
+configure them all to interact.
 
 If you are unsure on some of these settings:
 
-* most other developers have these settings done and are happy to help
-
-* there settings files are in GitHub with examples and documentation
+* Most other developers have these settings done and are happy to help
+* Each project's settings files are in GitHub with examples and documentation
 
 Webpay and Zamboni
 ~~~~~~~~~~~~~~~~~~
@@ -49,6 +48,29 @@ Once you've added these in, you can test this works by hitting the URL
 http://your.local.webpay/mozpay/services/monitor. The value for ``marketplace``
 should be ``ok``. For example:
 https://marketplace.allizom.org/mozpay/services/monitor.
+
+Webpay and Spartacus
+~~~~~~~~~~~~~~~~~~~~
+
+Webpay serves views which the 'Single Page App' Spartacus renders. As a result
+of this webpay has several settings which control how Spartacus is served.
+
+Webpay assumes that Spartacus is running at http://localhost:2604
+by default. To run spartacus you should move into the top-level of your
+Spartacus checkout and run `grunt start`. Doing this means you're using the
+Spartacus dev-server to serve Spartacus' static assets.
+
+Should you need to customise where spartacus is accessed from, you can modify
+the webpay setting `SPARTACUS_STATIC`.
+
+Overriding Spartacus settings via Webpay
+________________________________________
+
+To be able to change the settings that Spartacus uses in development you
+can override `SPA_SETTINGS` in webpay. Any settings here are merged with the
+`settings.js <https://github.com/mozilla/spartacus/blob/master/public/js/settings.js>`_
+in Spartacus.
+
 
 Configuring devices
 -------------------
@@ -291,3 +313,9 @@ Search for a paid app such as Private Yacht and make a purchase.
 **WARNING**: the stage app is currently hooked up to the live Bango payment
 system.
 
+
+.. _`Spartacus`: https://github.com/mozilla/spartacus
+.. _`Solitude`: https://github.com/mozilla/solitude
+.. _`Zippy`: https://github.com/mozilla/zippy
+.. _`Webpay`: https://github.com/mozilla/webpay
+.. _`Zamboni`: https://github.com/mozilla/zamboni

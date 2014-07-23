@@ -108,7 +108,7 @@ By default the projects listen to the following ports:
 +---------------------+--------+
 | Solitude Proxy [1]_ | 2603   |
 +---------------------+--------+
-| Spartacus           | 7777   |
+| Spartacus           | 2604   |
 +---------------------+--------+
 | Fireplace           | 8675   |
 +---------------------+--------+
