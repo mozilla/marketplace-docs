@@ -7,7 +7,7 @@ Building the Documentation
 
 To prepare to build this documentation:
 
-    pip install requirements/docs.txt
+    pip install -r requirements/docs.txt
 
 To build this documentation:
 
