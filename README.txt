@@ -7,9 +7,13 @@ Building the Documentation
 
 To prepare to build this documentation:
 
+    mkvirtualenv marketplace-docs
     pip install -r requirements/docs.txt
 
 To build this documentation:
 
-    cd docs
-    make html
+    make docs
+
+To have changes built as they happen:
+
+    make watch
