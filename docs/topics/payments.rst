@@ -6,9 +6,9 @@ This section is about processing payments on the Marketplace.
 Setup
 -----
 
-To develop payments locally we would recommend that you install Webpay,
-Solitude and Zippy. This will give you a complete end to end flow of how
-payments would work but you will be missing:
+To develop payments locally we would recommend that you install `Webpay`_,
+`Solitude`_, `Zippy`_ and `Spartacus`_. This will give you a complete end to end flow
+of how payments would work but you will be missing:
 
 * actual carrier or credit card charges
 
@@ -17,15 +17,14 @@ payments would work but you will be missing:
 If you want that then you'll need to set up integration with a real payment
 provider, such as Bango. That is discussed in the solitude docs.
 
-The following *assumes* that you have a successfully working Webpay, Solitude,
-Zippy and Zamboni installed. This document discusses how you need to configure
-them all to interact.
+The following *assumes* that you have a successfully working `Spartacus`_, `Webpay`_,
+`Solitude`_, `Zippy`_ and `Zamboni`_ installed. This document discusses how you need to
+configure them all to interact.
 
 If you are unsure on some of these settings:
 
-* most other developers have these settings done and are happy to help
-
-* there settings files are in GitHub with examples and documentation
+* Most other developers have these settings done and are happy to help
+* Each project's settings files are in GitHub with examples and documentation
 
 Webpay and Zamboni
 ~~~~~~~~~~~~~~~~~~
@@ -50,13 +49,36 @@ http://your.local.webpay/mozpay/services/monitor. The value for ``marketplace``
 should be ``ok``. For example:
 https://marketplace.allizom.org/mozpay/services/monitor.
 
+Webpay and Spartacus
+~~~~~~~~~~~~~~~~~~~~
+
+`Webpay`_ serves views which the 'Single Page App' `Spartacus`_ renders. As a result
+of this webpay has several settings which control how Spartacus is served.
+
+`Webpay`_ assumes that `Spartacus`_ is running at http://localhost:2604
+by default. To run Spartacus you should move into the top-level of your
+Spartacus checkout and run `grunt start`. Doing this means you're using the
+Spartacus dev-server to serve Spartacus' static assets.
+
+Should you need to customise where `Spartacus`_ is accessed from, you can modify
+the webpay setting `SPARTACUS_STATIC`.
+
+Overriding Spartacus settings via Webpay
+________________________________________
+
+To be able to change the settings that `Spartacus`_ uses in development you
+can override `SPA_SETTINGS` in webpay. Any settings here are merged with the
+`settings.js <https://github.com/mozilla/spartacus/blob/master/public/js/settings.js>`_
+in Spartacus.
+
+
 Configuring devices
 -------------------
 
 Out of the box, Firefox OS only ships with settings that let you make payments
 against the production server. If you want to pay with a hosted *dev* or *stage*
 server then you'll need to put some custom settings on your B2G device.
-See the :ref:`developer docs <developers>` if you want to host your own WebPay.
+See the `developer docs`_ if you want to host your own WebPay.
 
 Using the Firefox OS Simulator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,7 +113,7 @@ Marketplace dev/stage apps.
 With `ezboot`_ you can do all of this with some commands.
 First, install `ezboot`_ so that the command line script is available on your path.
 
-Now, grab the :ref:`webpay <developers>` source to get the settings you need::
+Now, grab the `Webpay`_ source to get the settings you need::
 
     git clone git://github.com/mozilla/webpay.git
 
@@ -151,7 +173,7 @@ Build A Custom B2G Profile
 You have to build a
 custom profile from the Gaia source to allow ``navigator.mozPay()``
 to talk to your local WebPay server.
-Refer to the `Gaia Hacking`_
+Refer to the `Developing Gaia`_
 page for more details but this page has everything you need to know.
 
 **IMPORTANT**: You have to use a branch of Gaia that matches the
@@ -291,3 +313,13 @@ Search for a paid app such as Private Yacht and make a purchase.
 **WARNING**: the stage app is currently hooked up to the live Bango payment
 system.
 
+
+.. _`Spartacus`: https://github.com/mozilla/spartacus
+.. _`Solitude`: https://github.com/mozilla/solitude
+.. _`Zippy`: https://github.com/mozilla/zippy
+.. _`Webpay`: https://github.com/mozilla/webpay
+.. _`Zamboni`: https://github.com/mozilla/zamboni
+.. _`git`: http://git-scm.com/
+.. _`Developing Gaia`: https://developer.mozilla.org/en-US/Firefox_OS/Developing_Gaia
+.. _`Android Developer Tools`: http://developer.android.com/sdk/index.html
+.. _`developer docs`: http://webpay.readthedocs.org/en/latest/developers.html#developers
