@@ -17,6 +17,7 @@ Contents
    topics/payments.rst
    topics/package.rst
    topics/production.rst
+   topics/front-end-testing.rst
 
 What is covered
 ---------------

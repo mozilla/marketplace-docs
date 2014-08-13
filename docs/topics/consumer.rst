@@ -1,5 +1,5 @@
-Consumer
-========
+Consumer Pages
+==============
 
 This section is about the consumer Marketplace pages.
 
