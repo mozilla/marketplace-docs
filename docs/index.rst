@@ -12,6 +12,7 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   topics/contributing.rst
    topics/setup.rst
    topics/consumer.rst
    topics/payments.rst

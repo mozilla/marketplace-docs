@@ -47,12 +47,55 @@ What should I setup?
 --------------------
 
 Most likely you are wanting to work on the consumer, developer or
-reveiwer pages. In that case you'll just need zamboni and fireplace.
+reviewer pages. In that case you'll just need Zamboni and Fireplace.
 
 After that setting up each collection of repositories should only be needed if
 you want to work on that area. For example: setting up monolith and marketplace
 stats would be needed if you wanted to work on stats. But many developers will
 likely not bother.
+
+.. _consumer-setup-label:
+
+Consumer pages only
+~~~~~~~~~~~~~~~~~~~
+
+The front end can set up and be run with just Fireplace installed.
+
+1. Install requirements
++++++++++++++++++++++++
+
+The recommended solution for installing on OS X is `Homebrew
+<http://brew.sh/>`_::
+
+  brew install node npm
+
+2. Install Fireplace
+++++++++++++++++++++
+
+Fork the repository and then clone the repository from https://github.com/mozilla/fireplace/
+
+Then run::
+
+  cd fireplace
+  npm install
+  npm install -g commonplace
+  cp src/media/js/settings_flue_paas.js.dist src/media/js/settings_local.js
+  damper
+
+Then open your browser to http://localhost:8675/
+
+You should have a working version of Fireplace, connected to Flue, a fake
+version of the Marketplace that provides some API responses. Flue doesn't
+implement the entire Marketplace API, just a subset.
+
+For information on how to run the unit tests please see the `Fireplace readme <https://github.com/mozilla/fireplace>`_.
+
+.. _backend-setup-label:
+
+Backend pages
+~~~~~~~~~~~~~
+
+We recommend using Docker. Full details to come.
 
 Environment Variables
 ---------------------
