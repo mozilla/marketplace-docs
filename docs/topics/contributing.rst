@@ -9,10 +9,10 @@ the Marketplace:
 * Assign the bug to yourself.
 
 * Set up your environment.
- * Is your bug something on the front-end or consumer pages? Then just setup :ref:`Fireplace <consumer-setup-label>`.
- * Is your bug something on the back-end, payments or more? Then setup :ref:`Zamboni and more <backend-setup-label>`.
+ * Is your bug something on the front-end or consumer pages? Then just set up :ref:`Fireplace <consumer-setup-label>`.
+ * Is your bug something on the back-end, payments or more? Then set up :ref:`Zamboni and more <backend-setup-label>`.
 
-*  Work on your bug. Feel free to reach out to over Marketplace developers on `IRC in the #marketplace channel <https://wiki.mozilla.org/IRC>`_, `mailing lists <https://lists.mozilla.org/listinfo/dev-marketplace>`_ or on the bug itself.
+* Work on your bug. Feel free to reach out to over Marketplace developers on `IRC in the #marketplace channel <https://wiki.mozilla.org/IRC>`_, `mailing lists <https://lists.mozilla.org/listinfo/dev-marketplace>`_ or on the bug itself.
  * Ensure that you write unit tests (if appropriate).
  * Ensure that you follow the `Mozilla WebDev style guide <http://mozweb.readthedocs.org/en/latest/>`_.
 
