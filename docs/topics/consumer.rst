@@ -27,7 +27,7 @@ Caching
 -------
 
 To prevent Fireplace from trying to access your cache for API calls locally,
-add the following to ``hearth/media/js/settings_local.js``::
+add the following to ``src/media/js/settings_local.js``::
 
     api_cdn_whitelist: {}
 

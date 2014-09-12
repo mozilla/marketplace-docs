@@ -34,7 +34,7 @@ environment variables. The ``SERVER`` variable will be used to load
 the right settings file so if you set it to ``local``, first make some
 settings::
 
-    cp hearth/media/js/settings_local.js.dist hearth/media/js/settings_package_local.js
+    cp src/media/js/settings_local.js.dist src/media/js/settings_package_local.js
 
 Edit the settings to make sure the API URL is correct. Now create your package::
 
