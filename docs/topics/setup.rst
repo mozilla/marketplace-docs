@@ -54,8 +54,49 @@ you want to work on that area. For example: setting up monolith and marketplace
 stats would be needed if you wanted to work on stats. But many developers will
 likely not bother.
 
+Consumer pages only
+~~~~~~~~~~~~~~~~~~~
+
+The front end can set up and be run with just Fireplace installed.
+
+1. Install requirements
++++++++++++++++++++++++
+
+The recommended solution for installing on OS X is `Homebrew
+<http://brew.sh/>`_::
+
+  brew install node npm
+
+2. Install Fireplace
+++++++++++++++++++++
+
+Fork the repository and then clone the repository from https://github.com/mozilla/fireplace/
+
+Then run::
+
+  cd fireplace
+  npm install
+  npm install -g commonplace
+  cp src/media/js/settings_flue_paas.js.dist src/media/js/settings_local.js
+  damper
+
+Then open your browser to http://localhost:8675/
+
+You should have a working version of Fireplace, connected to Flue, a fake
+version of the Marketplace that provides some API responses. Flue doesn't
+implement the entire Marketplace API, just a subset.
+
+For information on how to run the unit tests please see the `Fireplace readme <https://github.com/mozilla/fireplace>`_.
+
+.. _backend-setup-label:
+
+Backend pages
+~~~~~~~~~~~~~
+
+We recommend using Docker. See `Docker`_ for more details.
+
 Environment Variables
----------------------
+~~~~~~~~~~~~~~~~~~~~~
 
 To configure the services in the marketplace, you can either override each
 project's settings file (see documentation on each project for how that would
@@ -87,7 +128,7 @@ your development platform.
 +----------------------+--------------------+----------------------------+--------------------------------------+
 
 Other environment variables
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Please be aware that other parts of the site infrastructure can be affected by
 environment variables. Some examples:
@@ -96,9 +137,9 @@ environment variables. Some examples:
   `DJANGO_SETTINGS_MODULE <https://docs.djangoproject.com/en/dev/topics/settings/#designating-the-settings>`_
 
 Default ports
--------------
+~~~~~~~~~~~~~
 
-By default the projects listen to the following ports:
+By default the services listen to the following ports:
 
 +---------------------+--------+
 | Project             | Port   |
@@ -120,7 +161,7 @@ By default the projects listen to the following ports:
   for completeness
 
 Serving
--------
+~~~~~~~
 
 Marketplace is designed to be an app accessible at one domain, hitting nginx.
 
@@ -131,13 +172,4 @@ configuration will look something like this:
 
 .. image:: ../img/configuration.png
 
-NGINX
-+++++
-
-Installation (on OS X)::
-
-  brew install nginx
-
-Configuration:
-
-.. literalinclude:: ../config/nginx.conf
+You can find a configuration file in `wharfie <https://github.com/mozilla/wharfie/blob/master/images/nginx/nginx.conf>`_.
