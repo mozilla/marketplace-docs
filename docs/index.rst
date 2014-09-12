@@ -14,6 +14,7 @@ Contents
 
    topics/contributing.rst
    topics/setup.rst
+   topics/docker.rst
    topics/consumer.rst
    topics/payments.rst
    topics/package.rst
