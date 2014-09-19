@@ -14,22 +14,17 @@ Requirements
 
 * A github account (set in step 3).
 
-1. Install docker
+1. Install Docker
 -----------------
 
-`Install docker <https://docs.docker.com/installation/>`_. All the following
-assumes that you install `boot2docker`.
+`Install docker <https://docs.docker.com/installation/>`_. If you're on OSX you'll
+need to install Boot2docker which requires
+`Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_.
 
-
-2. Install Vagrant
-------------------
-
-`Install Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_.
-
-3. Build dependencies
+2. Build dependencies
 ---------------------
 
-For OS X run::
+Get the code::
 
     git clone https://github.com/mozilla/wharfie
     cd wharfie
@@ -43,6 +38,9 @@ For OS X run::
     pip install --upgrade pip
     pip install -r requirements.txt
 
+
+For OSX you'll need to configure shared folders support in boot2docker::
+
     boot2docker stop
     mv ~/.boot2docker/boot2docker.iso{,.bck}
     curl -o ~/.boot2docker/boot2docker.iso https://dl.dropboxusercontent.com/u/8877748/boot2docker.iso
@@ -51,7 +49,12 @@ For OS X run::
     boot2docker ssh 'sudo modprobe vboxsf && sudo mkdir -p "$(pwd)/wharfie/trees/" && sudo mount -t vboxsf trees "$(pwd)/wharfie/trees"'
     sudo sh -c "echo '$(boot2docker ip 2>/dev/null)  mp.dev' >> /etc/hosts"
 
-4. Build and run boxes
+For linux just add a hosts entry for localhost::
+
+    sudo sh -c "echo 127.0.0.1  mp.dev' >> /etc/hosts"
+
+
+3. Build and run boxes
 ----------------------
 
 Run::
@@ -63,7 +66,7 @@ Run::
 
 When complete open up a browser to http://mp.dev
 
-5. Issues
+4. Issues
 ---------
 
 Come talk to us on irc://irc.mozilla.org/marketplace if you have questions,
