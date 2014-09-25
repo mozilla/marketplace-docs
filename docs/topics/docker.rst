@@ -59,8 +59,14 @@ For linux just add a hosts entry for localhost::
 
 Run::
 
-    fig build
-    fig run
+    $ fig build
+
+    $ fig run mysql /bin/bash
+        # mysqld_safe &
+        # mysql -uroot
+          create database zamboni;
+    $ fig run zamboni python manage.py syncdb
+    $ fig up
 
 .. note:: This can take a long time.
 
