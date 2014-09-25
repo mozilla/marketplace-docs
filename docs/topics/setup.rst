@@ -27,7 +27,7 @@ Services
   Written in Python and Django - `webpay source <https://github.com/mozilla/solitude/>`_,
   `webpay docs <https://webpay.readthedocs.org>`_, `solitude source
   <https://github.com/mozilla/webpay/>`_, `solitude docs
-  <https://solitdue.readthedocs.org>`_
+  <https://solitude.readthedocs.org>`_
 
 * **Spartacus**: the front end for webpay. Written in Javascript - `source <https://github.com/mozilla/spartacus>`_
 
