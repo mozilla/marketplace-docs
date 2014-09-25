@@ -29,8 +29,8 @@ Get the code::
     git clone https://github.com/mozilla/wharfie
     cd wharfie
 
-    bin/wharfie whoami [your github user name]
-    bin/wharfie checkout
+    bin/mkt whoami [your github user name]
+    bin/mkt checkout
 
     pip install virtualenvwrapper
     mkvirtualenv wharfie
