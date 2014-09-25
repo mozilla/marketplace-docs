@@ -95,7 +95,7 @@ For information on how to run the unit tests please see the `Fireplace readme <h
 Backend pages
 ~~~~~~~~~~~~~
 
-We recommend using Docker. See `Docker`_ for more details.
+We recommend using Docker. See :ref:`docker` for more details.
 
 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~
@@ -130,7 +130,7 @@ your development platform.
 +----------------------+--------------------+----------------------------+--------------------------------------+
 
 Other environment variables
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Please be aware that other parts of the site infrastructure can be affected by
 environment variables. Some examples:

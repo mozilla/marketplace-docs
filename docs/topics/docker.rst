@@ -1,3 +1,5 @@
+.. _docker:
+
 Docker
 ======
 
@@ -69,7 +71,7 @@ When complete open up a browser to http://mp.dev
 4. Other Manual Steps
 ---------------------
 
-* For fireplace you'll need to manually create a fireplace/src/media/js/settings_local.js  
+* For fireplace you'll need to manually create a fireplace/src/media/js/settings_local.js
   file, this should look like this: https://gist.github.com/muffinresearch/0555302e210adf6dc760
 
 5. Issues
