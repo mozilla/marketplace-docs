@@ -48,8 +48,8 @@ For OSX you'll need to configure shared folders support in boot2docker::
     curl -o ~/.boot2docker/boot2docker.iso https://dl.dropboxusercontent.com/u/8877748/boot2docker.iso
     VBoxManage sharedfolder add boot2docker-vm -name trees -hostpath "$(pwd)/wharfie/trees/"
     boot2docker up
-    boot2docker ssh 'sudo modprobe vboxsf && sudo mkdir -p "$(pwd)/wharfie/trees/" && sudo mount -t vboxsf trees "$(pwd)/wharfie/trees"'
-    sudo sh -c "echo '$(boot2docker ip 2>/dev/null)  mp.dev' >> /etc/hosts"
+    boot2docker ssh "sudo modprobe vboxsf && sudo mkdir -p $(pwd)/trees/ && sudo mount -t vboxsf trees $(pwd)/trees"
+    sudo sh -c "echo $(boot2docker ip 2>/dev/null)  mp.dev >> /etc/hosts"
 
 For linux just add a hosts entry for localhost::
 
