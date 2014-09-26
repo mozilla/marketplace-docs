@@ -53,7 +53,7 @@ For OSX you'll need to configure shared folders support in boot2docker::
 
 For linux just add a hosts entry for localhost::
 
-    sudo sh -c "echo 127.0.0.1  mp.dev' >> /etc/hosts"
+    sudo sh -c "echo 127.0.0.1  mp.dev >> /etc/hosts"
 
 
 3. Build and run boxes
