@@ -62,7 +62,7 @@ For linux just add a hosts entry for localhost::
 Run::
 
     fig build
-    fig run
+    fig up
 
 .. note:: This can take a long time.
 
