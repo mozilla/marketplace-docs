@@ -72,6 +72,9 @@ These directions assume you have the reviewer permissions to do this.
 Preload a New Package in Firefox OS
 -----------------------------------
 
+For steps 4 to 8, we have a
+`helper script to download the package and generate Etags <https://github.com/mozilla/zamboni/blob/master/scripts/gaia_package.py>`_.
+
 These directions assume you have forked `gaia <https://github.com/mozilla-b2g/gaia/>`_.
 
 1) `File a bug <https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox%20OS&component=Gaia>`_
