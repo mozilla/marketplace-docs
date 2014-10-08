@@ -101,6 +101,10 @@ If you see something like the following::
   Cannot start container c44d451fcb58853bd9ef6d13ba4edf100817fce75bbfe7f9c814d68a708d82e3: setup
   mount namespace bind mounts stat /Users/whatevar/git/wharfie/trees/spartacus: no such file or directory
 
+or something like this::
+
+  nginx_1 | nginx: [emerg] host not found in upstream "webpay_1:2601" in /etc/nginx/conf.d/marketplace.conf:2
+
 Then it's likely fig can't see the source code. If you're on OSX this probably
 means the shared folder setup needs to be setup again. Unfortunately if
 boot2docker has been stopped or restarted you will need to run the setup command again.
@@ -126,11 +130,11 @@ How do I run migrations (Python projects)?
 
 Here's the command (runs in a new instance)::
 
-  fig run [image] schematic migrations/
+  fig run --rm [image] schematic migrations/
 
 E.g (for zamboni)::
 
-  fig run zamboni schematic migrations/
+  fig run --rm zamboni schematic migrations/
 
 
 How do I run Python unit tests?
@@ -138,11 +142,11 @@ How do I run Python unit tests?
 
 This command will run the unittests in a new instance::
 
-  fig run [image] python ./manage.py test --noinput -s --logging-clear-handlers
+  fig run --rm [image] python ./manage.py test --noinput -s --logging-clear-handlers
 
 E.g. (for zamboni)::
 
-  fig run zamboni python ./manage.py test --noinput -s --logging-clear-handlers
+  fig run --rm zamboni python ./manage.py test --noinput -s --logging-clear-handlers
 
 How do I update python/node package deps (rebuild the container)?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -165,6 +169,14 @@ Time is drifting in the boot2docker vm.
 If this should happen you can fix it with::
 
   boot2docker ssh sudo ntpclient -s -h pool.ntp.org
+
+How do I add an admin in Zamboni with docker?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Simply run this command replaceing name@email.com with the email of the user
+you've recently logged-in as::
+
+    fig run --rm zamboni python manage.py addusertogroup name@email.com 1
 
 6. Issues
 ---------
