@@ -23,7 +23,19 @@ Requirements
 need to install Boot2docker which requires
 `Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_.
 
-2. Build dependencies
+2. Fork the Code
+----------------
+
+You'll need to fork each of the repositories to your own GitHub account.  Visit 
+each repository listed below and click the *Fork* button.
+
+* `Zamboni <https://github.com/mozilla/zamboni>`_
+* `Webpay <https://github.com/mozilla/webpay/>`_
+* `Spartacus <https://github.com/mozilla/spartacus/>`_
+* `Fireplace <https://github.com/mozilla/fireplace/>`_
+* `Zippy <https://github.com/mozilla/zippy/>`_
+
+3. Build dependencies
 ---------------------
 
 Get the code::
@@ -56,7 +68,7 @@ For linux just add a hosts entry for localhost::
     sudo sh -c "echo 127.0.0.1  mp.dev >> /etc/hosts"
 
 
-3. Build and run boxes
+4. Build and run boxes
 ----------------------
 
 Run::
@@ -68,13 +80,13 @@ Run::
 
 When complete open up a browser to http://mp.dev
 
-4. Other Manual Steps
+5. Other Manual Steps
 ---------------------
 
 * For fireplace you'll need to manually create a fireplace/src/media/js/settings_local.js
   file, this should look like this: https://gist.github.com/muffinresearch/0555302e210adf6dc760
 
-5. FAQ
+6. FAQ
 ------
 
 Seeing a "Couldn't connect to Docker daemon..." error
