@@ -4,7 +4,7 @@ Contributing
 Contributors are more than welcome to the Firefox Marketplace. To contribute to
 the Marketplace:
 
-* Find a bug to work on. This is a list of bugs we think are `good for contributors <https://bugzilla.mozilla.org/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=mkt-contribute&sharer_id=177149&list_id=11080367>`_, but you are certainly welcome to work on `any Marketplace bug <https://bugzilla.mozilla.org/buglist.cgi?list_id=11080373&query_based_on=mkt-contribute&query_format=advanced&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&product=Marketplace&known_name=mkt-contribute>`_.
+* Find a bug to work on. This is a list of bugs we think are `good for contributors <https://bugzilla.mozilla.org/buglist.cgi?resolution=---&status_whiteboard_type=allwordssubstr&status_whiteboard=good first bug&product=Marketplace>`_, but you are certainly welcome to work on `any Marketplace bug <https://bugzilla.mozilla.org/buglist.cgi?list_id=11080373&query_based_on=mkt-contribute&query_format=advanced&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&product=Marketplace&known_name=mkt-contribute>`_.
 
 * Assign the bug to yourself.
 
