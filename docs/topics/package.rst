@@ -1,18 +1,31 @@
 .. _package:
 
 =========================
-Building the Packaged App
+The Packaged App
 =========================
 
-The Marketplace that ships on Firefox OS is a packaged app which needs to
-be built from `fireplace <https://github.com/mozilla/fireplace>`_.  (Side note:
-There is a lightweight version of the Marketplace called
-`yogafire <https://github.com/mozilla.yogafire>`_ which you may also be wanting
-to build.  It follows these same steps, except you'll need to swap out the right
-manifest URLs when appropriate).
+There are currently three variations of the packaged app:
 
-Create a New Package
---------------------
+* an iframed packaged app, referred to an iframed app
+* a packaged app, referred to as a packaged app
+* a lightweight packaged build from `yogafire <https://github.com/mozilla.yogafire>`_
+
+
+Building the iframed app
+========================
+
+These directions assume you have a copy of `fireplace <https://github.com/mozilla/fireplace>`_
+checked out.
+
+Assuming you want to make a production package, simply run from the root of
+your fireplace checkout::
+
+    make log
+
+Other packages exist for other servers.
+
+Building the packaged app
+=========================
 
 These directions assume you have a copy of `fireplace <https://github.com/mozilla/fireplace>`_
 checked out.
@@ -46,6 +59,49 @@ All of these commands will create packages in `/package/archives/`. The package 
 correspond to the :ref:`Marketplace servers <marketplace-servers-label>`
 or the ``SERVER`` variable. You can then test
 the package in the Simulator using the `App Manager <https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager>`_.
+
+Using the packaged or iframed app
+=================================
+
+This is actually a rather complicated topic for a few reasons:
+
+* the build of Firefox OS may or may not already have a package installed on
+  the device, it might be packaged or iframed
+* to install a packaged app on a device, you will need to have the certificates
+  that the packaged was signed with on your device
+
+Before you go any further, if you have a version of the app pre-installed
+:ref:`it is strongly recommended <packaged-or-iframed-label>` you understand what it
+is.
+
+This documentation covers install a packaged or iframed app under the following
+scenarios.
+
+Simulator
+---------
+
+...
+
+Device
+------
+
+...
+
+.. _packaged-or-iframed-label:
+
+Packaged or iframed
+-------------------
+
+On the simulator...
+
+On a device...
+
+
+Pushing packages to the Marketplace
+===================================
+
+The following refers to putting an app on to the Marketplace. However these are
+instructions most contributors should not need to run.
 
 Put the New Package on the Marketplace
 --------------------------------------
