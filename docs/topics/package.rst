@@ -125,3 +125,16 @@ These directions assume you have forked `gaia <https://github.com/mozilla-b2g/ga
     *review?* from *:julienw* or *:fabrice*
 
 11) Done!
+
+Testing your package on your Device
+-----------------------------------
+
+Do you have that tingle in your gut that says you should test our the package on an actual phone before making a PR?
+Or maybe you made some changes to the certs and you want to make sure they work?  Well, you're in luck, because
+it's super easy (this will erase everything on your phone):
+
+1) make sure you're in the root of your Gaia repository
+
+2) make sure you can see your Flame device with *adb devices*
+
+3) Run *make reset-gaia* to build your gaia and push to the device
