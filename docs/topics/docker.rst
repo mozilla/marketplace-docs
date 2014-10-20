@@ -5,6 +5,9 @@ Docker
 
 .. note:: Setting up with Docker is currently in beta. Feedback welcome.
 
+.. note:: Upgrading to boot2docker/docker 1.3+ is recommended for built-in
+          shared folder support on OSX.
+
 Using Docker is the recommended configuration for developers new to the
 Marketplace. You can set up the Marketplace without using Docker, but this will
 automate a lot of the steps.
@@ -23,6 +26,9 @@ Requirements
 need to install Boot2docker which requires
 `Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_.
 
+If you're using Boot2docker once you've created the vm it will tell you how to export
+variables in your shell in order to be able to communicate with the boot2docker vm.
+
 2. Build dependencies
 ---------------------
 
@@ -40,18 +46,28 @@ Get the code::
     pip install --upgrade pip
     pip install -r requirements.txt
 
+On OSX
+~~~~~~
 
-For OSX you'll need to configure shared folders support in boot2docker::
+For the code shares to work on OSX you'll need to stop boot2docker and up it with the command::
 
     boot2docker stop
-    mv ~/.boot2docker/boot2docker.iso{,.bck}
-    curl -o ~/.boot2docker/boot2docker.iso https://dl.dropboxusercontent.com/u/8877748/boot2docker.iso
-    VBoxManage sharedfolder add boot2docker-vm -name trees -hostpath "$(pwd)/wharfie/trees/"
-    boot2docker up
-    boot2docker ssh "sudo modprobe vboxsf && sudo mkdir -p $(pwd)/trees/ && sudo mount -t vboxsf trees $(pwd)/trees"
+    boot2docker up --vbox-share="$(pwd)/trees=trees"
+
+You can verify this by running::
+
+    boot2docker ssh
+    # Next navigate to /User/[username]/path/to/wharfie/trees/ and check the dirs for shared sourcecode.
+    # Then quit this ssh shell.
+
+Next add a hosts entry for mp.dev (the default host).
+
     sudo sh -c "echo $(boot2docker ip 2>/dev/null)  mp.dev >> /etc/hosts"
 
-For linux just add a hosts entry for localhost::
+On Linux
+~~~~~~~~
+
+Add a hosts entry for localhost::
 
     sudo sh -c "echo 127.0.0.1  mp.dev >> /etc/hosts"
 
@@ -62,11 +78,26 @@ For linux just add a hosts entry for localhost::
 Run::
 
     fig build
-    fig up
 
-.. note:: This can take a long time.
+.. note:: This can take a long time the first time.
 
-When complete open up a browser to http://mp.dev
+Next, to run all the services run::
+
+    fig up -d
+
+Alternatively if you would like all the service logs in the foreground run::
+
+    fig up # Ctrl-c here will shutdown all services.
+
+Generally running things in the background is preferred. When running services
+in the background if you want to see the logs for a given service run::
+
+    docker logs -f $(docker ps | grep zamboni | awk '{print $1}')
+
+To quit following the logs press `Ctrl-C`.
+
+
+When everything is running open up a browser to http://mp.dev
 
 4. Other Manual Steps
 ---------------------
@@ -74,7 +105,13 @@ When complete open up a browser to http://mp.dev
 * For fireplace you'll need to manually create a fireplace/src/media/js/settings_local.js
   file, this should look like this: https://gist.github.com/muffinresearch/0555302e210adf6dc760
 
-5. FAQ
+5. Upgrading Docker
+-------------------
+
+For OSX see http://docs.docker.com/installation/mac/#upgrading
+For Windows see: http://docs.docker.com/installation/windows#upgrading
+
+6. FAQ
 ------
 
 Seeing a "Couldn't connect to Docker daemon..." error
@@ -96,7 +133,7 @@ to your `.bashrc` or equivalent so it's set for all shells.
 Getting a "Couldn't start container" error
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you see something like the following::
+If you see something like the following on boot2docker/docker::
 
   Cannot start container c44d451fcb58853bd9ef6d13ba4edf100817fce75bbfe7f9c814d68a708d82e3: setup
   mount namespace bind mounts stat /Users/whatevar/git/wharfie/trees/spartacus: no such file or directory
@@ -105,15 +142,16 @@ or something like this::
 
   nginx_1 | nginx: [emerg] host not found in upstream "webpay_1:2601" in /etc/nginx/conf.d/marketplace.conf:2
 
-Then it's likely fig can't see the source code. If you're on OSX this probably
-means the shared folder setup needs to be setup again. Unfortunately if
-boot2docker has been stopped or restarted you will need to run the setup command again.
+Then it's likely fig can't see the source code. Check you have sourcecode under the `trees` directory
 
-Run::
+If you're on OSX this probably means the shared folders are not working for some reason.
+
+For previous installs prior to boot2docker 1.3 if boot2docker was stopped or restarted you
+will need to run the setup command again::
 
     boot2docker ssh "sudo modprobe vboxsf && sudo mkdir -p $(pwd)/trees/ && sudo mount -t vboxsf trees $(pwd)/trees"
 
-To fix it.
+For a longer term fix - upgrade to boot2docker/docker 1.3+
 
 
 `fig build` fails on Linux saying it can't connect to the daemon
@@ -173,12 +211,12 @@ If this should happen you can fix it with::
 How do I add an admin in Zamboni with docker?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Simply run this command replaceing name@email.com with the email of the user
+Simply run this command replacing name@email.com with the email of the user
 you've recently logged-in as::
 
     fig run --rm zamboni python manage.py addusertogroup name@email.com 1
 
-6. Issues
+7. Issues
 ---------
 
 Come talk to us on irc://irc.mozilla.org/marketplace if you have questions,
