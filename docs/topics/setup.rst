@@ -1,65 +1,89 @@
 Setup
 =====
 
-The Firefox Marketplace is a collection of services and repositories that can
-be assembled together to form the Marketplace.
+The Firefox Marketplace is a collection of services and repositories that
+together form the Marketplace.
 
 Services
 --------
 
-* **Zamboni**: the main backend for the Marketplace, also serves developer
-  reviewer and admin tools. Written in Python using
-  Django - `source <https://github.com/mozilla/zamboni>`_, `documentation
-  <https://zamboni.readthedocs.org>`_.
+Backend
+~~~~~~~
 
-* **Fireplace**: the consumer front end for the Marketplace, written as a browser
-  app in JavaScript using Commonplace and Nunjucks - `source <https://github.com/mozilla/fireplace>`_
+* **Zamboni**: the main API backend that also serves developer, reviewer, and admin tools.
+  Written in Python with Django -
+  `source <https://github.com/mozilla/zamboni>`_,
+  `docs <https://zamboni.readthedocs.org>`_.
 
-* **Monolith**: storage and query server for statistics around the Marketplace,
-  written in Python - `source <https://github.com/mozilla/monolith-client>`_,
-  aggregator `source <https://github.com/mozilla/monolith-aggregator/>`_
+* **Flue**: a fake API backend used for testing.
+  Written in Python with Flask -
+  `source <https://github.com/mozilla/flue>`_,
 
-* **Marketplace stats**: is the front end for monolith to display the stats on to
-  the end users. Written as a browser app in JavaScript using Commonplace
-  - `source <https://github.com/mozilla/marketplace-stats/>`_
+* **Monolith**: storage and query server for statistics around the Marketplace.
+  Written in Python -
+  `source <https://github.com/mozilla/monolith-client>`_,
+  `aggregator source <https://github.com/mozilla/monolith-aggregator/>`_
 
 * **Webpay** and **Solitude**: servers for processing payments for the Marketplace.
-  Written in Python and Django - `webpay source <https://github.com/mozilla/solitude/>`_,
-  `webpay docs <https://webpay.readthedocs.org>`_, `solitude source
-  <https://github.com/mozilla/webpay/>`_, `solitude docs
-  <https://solitude.readthedocs.org>`_
+  Written in Python with Django -
+  `webpay source <https://github.com/mozilla/solitude/>`_,
+  `webpay docs <https://webpay.readthedocs.org>`_,
+  `solitude source <https://github.com/mozilla/webpay/>`_,
+  `solitude docs <https://solitude.readthedocs.org>`_
 
-* **Spartacus**: the front end for webpay. Written in Javascript - `source <https://github.com/mozilla/spartacus>`_
+* **Trunion**: a signing service for app receipts and packaged apps.
+  Written in Python with Pyramid -
+  `source <https://github.com/mozilla/trunion/>`_
 
-* **Zippy**: a fake backend for payments so to fake out carrier billing. Written
-  in JavaScript and Node JS - `source <https://github.com/mozilla/zippy>`_
+* **Zippy**: a fake backend for payments so to fake out carrier billing.
+  Written in Node -
+  `source <https://github.com/mozilla/zippy>`_
 
-* **Rocketfuel**: curation tools for the Marketplace. Written in JavaScript and
-  Commonplace - `source <https://github.com/mozilla/rocketfuel/>`_
+Frontend (Javascript)
+~~~~~~~~~~~~~~~~~~~~~
 
-* **Trunion**: a signing service for app receipts and packaged apps. Written in
-  Python and Pyramid - `source <https://github.com/mozilla/trunion/>`_
+* **Fireplace**: the actual consumer frontend for the Marketplace.
+  Written in Javascript with our Commonplace framework -
+  `source <https://github.com/mozilla/fireplace>`_
 
-There are other repositories and libraries that are these are dependent upon,
-but these are the high level areas.
+* **Statistics**: dashboard that displays charts and graphs from Monolith.
+  Written in Javascript with our Commonplace framework -
+  `source <https://github.com/mozilla/marketplace-stats/>`_
+
+* **Transonic**: curation and editorial tools for the Marketplace, notably for the Feed.
+  Written in Javascript with our Commonplace framework -
+  `source <https://github.com/mozilla/transonic/>`_
+
+* **Operator Dashboard**: dashboard for FirefoxOS operators to manage their app collections.
+  Written in Javascript with our Commonplace framework -
+  `source <https://github.com/mozilla/commbadge/>`_
+
+* **Commbadge**: dashboard for communications between app reviewers and app developers.
+  Written in Javascript with our Commonplace framework -
+  `source <https://github.com/mozilla/commbadge/>`_
+
+* **Spartacus**: the frontend for Webpay.
+  Written in Javascript -
+  `source <https://github.com/mozilla/spartacus>`_
 
 What should I setup?
 --------------------
 
-Most likely you are wanting to work on the consumer, developer or
-reviewer pages. In that case you'll just need Zamboni and Fireplace.
+We recommend using Docker to set up a Marketplace development environment. See
+:ref:`docker` for more details. Proceed if you wish to set things up manually.
 
-After that setting up each collection of repositories should only be needed if
-you want to work on that area. For example: setting up monolith and marketplace
-stats would be needed if you wanted to work on stats. But many developers will
-likely not bother.
+Most likely you are wanting to work on the consumer, developer or reviewer
+pages. In that case, you'll just need Zamboni and Fireplace. After that,
+setting up other repositories would only be needed if you wanted to work within
+a specific component. For example, setting up monolith and marketplace-stats
+would be needed if you wanted to work on statistics.
 
 .. _consumer-setup-label:
 
 Consumer pages only
 ~~~~~~~~~~~~~~~~~~~
 
-The front end can set up and be run with just Fireplace installed.
+The frontend can set up and be run with just Fireplace installed.
 
 1. Install requirements
 +++++++++++++++++++++++
@@ -77,10 +101,9 @@ Fork the repository and then clone the repository from https://github.com/mozill
 Then run::
 
   cd fireplace
-  npm install
-  npm install -g commonplace
+  make init
   cp src/media/js/settings_flue_paas.js.dist src/media/js/settings_local.js
-  damper
+  make serve
 
 Then open your browser to http://localhost:8675/
 
@@ -88,14 +111,13 @@ You should have a working version of Fireplace, connected to Flue, a fake
 version of the Marketplace that provides some API responses. Flue doesn't
 implement the entire Marketplace API, just a subset.
 
-For information on how to run the unit tests please see the `Fireplace readme <https://github.com/mozilla/fireplace>`_.
-
 .. _backend-setup-label:
 
 Backend pages
 ~~~~~~~~~~~~~
 
-We recommend using Docker. See :ref:`docker` for more details.
+We recommend using Docker to set up the backend, as it is quite complicated.
+See :ref:`docker` for more details.
 
 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~
@@ -152,15 +174,20 @@ By default the services listen to the following ports:
 +---------------------+--------+
 | Solitude            | 2602   |
 +---------------------+--------+
-| Solitude Proxy [1]_ | 2603   |
+| Solitude Proxy      | 2603   |
 +---------------------+--------+
 | Spartacus           | 2604   |
 +---------------------+--------+
 | Fireplace           | 8675   |
 +---------------------+--------+
-
-.. [1] Solitude Proxy is not normally run by developers, but is given a port
-  for completeness
+| Commbadge           | 8676   |
++---------------------+--------+
+| Statistics          | 8677   |
++---------------------+--------+
+| Transonic           | 8678   |
++---------------------+--------+
+| Operator Dashboard  | 8679   |
++---------------------+--------+
 
 Serving
 ~~~~~~~
@@ -170,7 +197,7 @@ Marketplace is designed to be an app accessible at one domain, hitting nginx.
 Behind the scenes nginx will proxy to the other servers on your behalf.
 
 Most developers are using nginx to serve out the multiple services. Your
-configuration will look something like this:
+configuration may look something like this:
 
 .. image:: ../img/configuration.png
 

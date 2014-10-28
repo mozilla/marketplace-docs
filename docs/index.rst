@@ -1,8 +1,7 @@
 Firefox Marketplace documentation
 =======================================
 
-This documentation covers the `Firefox Marketplace`_. It provides overall
-documentation for the Marketplace.
+This documentation broadly covers the `Firefox Marketplace`_.
 
 .. _`Firefox Marketplace`: https://marketplace.firefox.com/
 
@@ -36,6 +35,5 @@ What is not covered
 * APIs for each individual component is in that components repository.
 
 These docs are also available as a `PDF`_.
-
 
 .. _`PDF`: https://media.readthedocs.org/pdf/marketplace/latest/marketplace.pdf
