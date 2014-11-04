@@ -178,6 +178,8 @@ By default the services listen to the following ports:
 +---------------------+--------+
 | Spartacus           | 2604   |
 +---------------------+--------+
+| Zippy               | 2605   |
++---------------------+--------+
 | Fireplace           | 8675   |
 +---------------------+--------+
 | Commbadge           | 8676   |
