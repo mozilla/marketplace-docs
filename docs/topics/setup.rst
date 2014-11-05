@@ -4,8 +4,28 @@ Setup
 The Firefox Marketplace is a collection of services and repositories that
 together form the Marketplace.
 
-Services
---------
+
+Setting up the Marketplace Frontend
+-----------------------------------
+
+If you want to work on the consumer-facing Marketplace frontend, visit our
+:refs:`frontend` documentation. It only takes three commands to get things
+up and running. You don't even need to setup a backend, although in some cases,
+you might want to.
+
+.. _backend-setup-label:
+
+
+Setting up the Marketplace Backend
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To set up more of the backend, API, and payments infrastructure, visit our
+:ref:`docker` documentation. Docker will automate the setup of a Marketplace
+environment.
+
+
+List of Services and Repositories
+---------------------------------
 
 Backend
 ~~~~~~~
@@ -66,67 +86,36 @@ Frontend (Javascript)
   Written in Javascript -
   `source <https://github.com/mozilla/spartacus>`_
 
-What should I setup?
---------------------
+Frontend Components (Javascript)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We recommend using Docker to set up a Marketplace development environment. See
-:ref:`docker` for more details. Proceed if you wish to set things up manually.
+* **marketplace-core-modules**: core JS modules for Marketplace frontend projects
+  Written in Javascript -
+  `source <https://github.com/mozilla/marketplace-core-modules>`_
 
-Most likely you are wanting to work on the consumer, developer or reviewer
-pages. In that case, you'll just need Zamboni and Fireplace. After that,
-setting up other repositories would only be needed if you wanted to work within
-a specific component. For example, setting up monolith and marketplace-stats
-would be needed if you wanted to work on statistics.
+* **commonplace**: Node module that includes configuration, template optimization, l10n.
+  Written in Node -
+  `source <https://github.com/mozilla/commonplace>`_
+
+* **marketplace-gulp**: gulpfiles for Marketplace frontend projects for builds.
+  Written in Node -
+  `source <https://github.com/mozilla/marketplace-gulp>`_
+
+* **marketplace-constants**: shared constants between the backend and frontend.
+  Written in Python -
+  `source <https://github.com/mozilla/marketplace-constants>`_
 
 .. _consumer-setup-label:
 
-Consumer pages only
-~~~~~~~~~~~~~~~~~~~
-
-The frontend can set up and be run with just Fireplace installed.
-
-1. Install requirements
-+++++++++++++++++++++++
-
-The recommended solution for installing on OS X is `Homebrew
-<http://brew.sh/>`_::
-
-  brew install node npm
-
-2. Install Fireplace
-++++++++++++++++++++
-
-Fork the repository and then clone the repository from https://github.com/mozilla/fireplace/
-
-Then run::
-
-  cd fireplace
-  make init
-  cp src/media/js/settings_flue_paas.js.dist src/media/js/settings_local.js
-  make serve
-
-Then open your browser to http://localhost:8675/
-
-You should have a working version of Fireplace, connected to Flue, a fake
-version of the Marketplace that provides some API responses. Flue doesn't
-implement the entire Marketplace API, just a subset.
-
-.. _backend-setup-label:
-
-Backend pages
-~~~~~~~~~~~~~
-
-We recommend using Docker to set up the backend, as it is quite complicated.
-See :ref:`docker` for more details.
 
 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~
 
-To configure the services in the marketplace, you can either override each
+To configure the services in the Marketplace, you can either override each
 project's settings file (see documentation on each project for how that would
 look). Or you can alter a few environment variables that all the projects use.
-This is the **recommended approach** for setting up the marketplace until you
-feel more comfortable with the settings in the marketplace.
+This is the **recommended approach** for setting up the Marketplace until you
+feel more comfortable with the settings in the Marketplace.
 
 This documentation assumes that you know how to set environment variables on
 your development platform.
@@ -191,16 +180,17 @@ By default the services listen to the following ports:
 | Operator Dashboard  | 8679   |
 +---------------------+--------+
 
-Serving
-~~~~~~~
+Serving With Nginx
+~~~~~~~~~~~~~~~~~~
 
-Marketplace is designed to be an app accessible at one domain, hitting nginx.
+Marketplace is designed to be an app accessible at one domain, hitting Nginx.
 
-Behind the scenes nginx will proxy to the other servers on your behalf.
+Behind the scenes Nginx will proxy to the other servers on your behalf.
 
-Most developers are using nginx to serve out the multiple services. Your
+Most developers are using Nginx to serve out the multiple services. Your
 configuration may look something like this:
 
 .. image:: ../img/configuration.png
 
-You can find a configuration file in `wharfie <https://github.com/mozilla/wharfie/blob/master/images/nginx/nginx.conf>`_.
+You can find an example configuration file in
+`wharfie <https://github.com/mozilla/wharfie/blob/master/images/nginx/nginx.conf>`_.

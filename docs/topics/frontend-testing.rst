@@ -1,5 +1,5 @@
-Front-end Testing
-=================
+Frontend Testing
+================
 
 Across the marketplace projects we are using a combination of unittests and casperjs
 for higher-level "flow" integration tests.
