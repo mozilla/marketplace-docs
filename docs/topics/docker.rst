@@ -5,12 +5,17 @@ Docker
 
 .. note:: Setting up with Docker is currently in beta. Feedback welcome.
 
-.. note:: Upgrading to boot2docker/docker 1.3+ is recommended for built-in
+.. note:: Upgrading to boot2docker/docker 1.3+ is required for built-in
           shared folder support on OSX.
 
-Using Docker is the recommended configuration for developers new to the
-Marketplace. You can set up the Marketplace without using Docker, but this will
-automate a lot of the steps.
+Using Docker is the recommended configuration for developers to set up the
+Marketplace backend and payments. Docker automates a lot of the steps on
+setting up the backend.
+
+It will also set up the Marketplace frontend for you to poke around, but Docker
+is currently not recommended to use (besides as a backend) for frontend
+development. If you are more interested in developing the frontend, visit our
+:ref:`frontend` docs.
 
 Requirements
 ------------

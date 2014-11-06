@@ -14,11 +14,11 @@ Contents
    topics/contributing.rst
    topics/setup.rst
    topics/docker.rst
-   topics/consumer.rst
+   topics/frontend.rst
    topics/payments.rst
    topics/package.rst
    topics/production.rst
-   topics/front-end-testing.rst
+   topics/frontend-testing.rst
 
 What is covered
 ---------------
