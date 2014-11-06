@@ -17,7 +17,7 @@ you might want to.
 
 
 Setting up the Marketplace Backend
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 To set up more of the backend, API, and payments infrastructure, visit our
 :ref:`docker` documentation. Docker will automate the setup of a Marketplace
