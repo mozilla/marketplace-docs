@@ -4,24 +4,29 @@ Setup
 The Firefox Marketplace is a collection of services and repositories that
 together form the Marketplace.
 
-
-Setting up the Marketplace Frontend
------------------------------------
-
-If you want to work on the consumer-facing Marketplace frontend, visit our
-:refs:`frontend` documentation. It only takes three commands to get things
-up and running. You don't even need to setup a backend, although in some cases,
-you might want to.
-
-.. _backend-setup-label:
+Our recommended setup for the backend is to use :ref:`Docker <backend>`. And our
+recommended setup for the frontend is to clone the repository as detailed
+in our :ref:`frontend` documentation. By default, the frontend setup will point
+to our development server and database. But if you wanted a full environment,
+you can set up both the backend and frontend, and point your frontend towards
+the backend set up by Docker.
 
 
 Setting up the Marketplace Backend
 ----------------------------------
 
-To set up more of the backend, API, and payments infrastructure, visit our
-:ref:`docker` documentation. Docker will automate the setup of a Marketplace
-environment.
+If you want to work on the backend, the API, or the payments infrastructure,
+visit our :ref:`backend` documentation. It will explain how to set up Docker as
+it automates the setup of the Marketplace environment.
+
+
+Setting up the Marketplace Frontend
+-----------------------------------
+
+If you want to work on the consumer-facing Marketplace frontend, visit our
+:ref:`frontend` documentation. It only takes three commands to get things
+up and running. You don't even need to setup a backend, although you could
+if you wanted your own personal playground.
 
 
 List of Services and Repositories
@@ -30,10 +35,11 @@ List of Services and Repositories
 Backend
 ~~~~~~~
 
-* **Zamboni**: the main API backend that also serves developer, reviewer, and admin tools.
+* **Zamboni**: the main API backend that also serves developer, reviewer, and admin tool pages.
   Written in Python with Django -
   `source <https://github.com/mozilla/zamboni>`_,
-  `docs <https://zamboni.readthedocs.org>`_.
+  `docs <https://zamboni.readthedocs.org>`_,
+  `API docs <https://firefox-marketplace-api.readthedocs.org>`_,
 
 * **Flue**: a fake API backend used for testing.
   Written in Python with Flask -
@@ -62,7 +68,7 @@ Backend
 Frontend (Javascript)
 ~~~~~~~~~~~~~~~~~~~~~
 
-* **Fireplace**: the actual consumer frontend for the Marketplace.
+* **Fireplace**: the main frontend for the Firefox Marketplace.
   Written in Javascript with our Commonplace framework -
   `source <https://github.com/mozilla/fireplace>`_
 
@@ -105,54 +111,25 @@ Frontend Components (Javascript)
   Written in Python -
   `source <https://github.com/mozilla/marketplace-constants>`_
 
-.. _consumer-setup-label:
+Serving With Nginx
+~~~~~~~~~~~~~~~~~~
 
+Marketplace is designed to be an app accessible at one domain, hitting Nginx.
 
-Environment Variables
-~~~~~~~~~~~~~~~~~~~~~
+Behind the scenes Nginx will proxy to the other servers on your behalf.
 
-To configure the services in the Marketplace, you can either override each
-project's settings file (see documentation on each project for how that would
-look). Or you can alter a few environment variables that all the projects use.
-This is the **recommended approach** for setting up the Marketplace until you
-feel more comfortable with the settings in the Marketplace.
+Most developers are using Nginx to serve out the multiple services. Your
+configuration may look something like this:
 
-This documentation assumes that you know how to set environment variables on
-your development platform.
+.. image:: ../img/configuration.png
 
-+----------------------+--------------------+----------------------------+--------------------------------------+
-+ Environment variable | Used by            | Description                | Default                              |
-+======================+====================+============================+======================================+
-| MARKETPLACE_URL      | Webpay             | URL to nginx               | http://localhost/                    |
-+----------------------+--------------------+----------------------------+--------------------------------------+
-| MEMCACHE_URL         | Zamboni, Webpay,   | The location of memcache   | localhost:11211                      |
-|                      | Solitude           |                            |                                      |
-+----------------------+--------------------+----------------------------+--------------------------------------+
-| SOLITUDE_DATABASE    | Solitude           | dj_database_url compliant  | mysql://root@localhost:3306/solitude |
-|                      |                    | URL to solitude Mysql      |                                      |
-+----------------------+--------------------+----------------------------+--------------------------------------+
-| SOLITUDE_URL         | Zamboni, Webpay    | URL to solitude instance   | http://localhost:2602                |
-+----------------------+--------------------+----------------------------+--------------------------------------+
-| SPARTACUS_STATIC     | Webpay             | URL to Spartacus static    | http://localhost:2604                |
-|                      |                    | files                      |                                      |
-+----------------------+--------------------+----------------------------+--------------------------------------+
-| ZAMBONI_DATABASE     | Zamboni            | dj_database_url compliant  | mysql://root@localhost:3306/zamboni  |
-|                      |                    | URL to zamboni Mysql       |                                      |
-+----------------------+--------------------+----------------------------+--------------------------------------+
+You can find an example configuration file in
+`our Docker repository <https://github.com/mozilla/wharfie/blob/master/images/nginx/nginx.conf>`_.
 
-Other environment variables
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Please be aware that other parts of the site infrastructure can be affected by
-environment variables. Some examples:
-
-* If you want to use custom Django settings, you can set
-  `DJANGO_SETTINGS_MODULE <https://docs.djangoproject.com/en/dev/topics/settings/#designating-the-settings>`_
-
-Default ports
+Default Ports
 ~~~~~~~~~~~~~
 
-By default the services listen to the following ports:
+By default, the services listen to the following ports:
 
 +---------------------+--------+
 | Project             | Port   |
@@ -179,18 +156,3 @@ By default the services listen to the following ports:
 +---------------------+--------+
 | Operator Dashboard  | 8679   |
 +---------------------+--------+
-
-Serving With Nginx
-~~~~~~~~~~~~~~~~~~
-
-Marketplace is designed to be an app accessible at one domain, hitting Nginx.
-
-Behind the scenes Nginx will proxy to the other servers on your behalf.
-
-Most developers are using Nginx to serve out the multiple services. Your
-configuration may look something like this:
-
-.. image:: ../img/configuration.png
-
-You can find an example configuration file in
-`wharfie <https://github.com/mozilla/wharfie/blob/master/images/nginx/nginx.conf>`_.

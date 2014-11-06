@@ -13,11 +13,11 @@ Contents
 
    topics/contributing.rst
    topics/setup.rst
-   topics/docker.rst
+   topics/backend.rst
    topics/frontend.rst
    topics/payments.rst
    topics/package.rst
-   topics/production.rst
+   topics/servers.rst
    topics/frontend-testing.rst
 
 What is covered

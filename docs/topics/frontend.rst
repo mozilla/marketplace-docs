@@ -3,7 +3,7 @@
 Marketplace Frontend
 ====================
 
-This section is about contributing to the Marketplace frontend (i.e., the
+This section is about setting up the Marketplace frontend (i.e., the
 Consumer Pages). The documentation for the Marketplace frontend is a
 work-in-progress.
 
@@ -25,7 +25,7 @@ Firefox OS
 ----------
 
 To develop on Firefox OS, we recommend using
-`Firefox's WebIDE<https://developer.mozilla.org/docs/Tools/WebIDE>`_. Follow
+`Firefox's WebIDE <https://developer.mozilla.org/docs/Tools/WebIDE>`_. Follow
 the instructions on connecting a device.
 
 To generate a package (i.e., a Marketplace app to install on the device)::

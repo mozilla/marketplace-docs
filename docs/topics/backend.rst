@@ -1,7 +1,7 @@
-.. _docker:
+.. _backend:
 
-Docker
-======
+Marketplace Backend
+===================
 
 .. note:: Setting up with Docker is currently in beta. Feedback welcome.
 
@@ -17,12 +17,17 @@ is currently not recommended to use (besides as a backend) for frontend
 development. If you are more interested in developing the frontend, visit our
 :ref:`frontend` docs.
 
+For further information about the Marketplace backend, check out our
+`API documentation <https://firefox-marketplace-api.readthedocs.org/>`_ and
+`Zamboni documenation <https://zamboni.readthedocs.org/>`_.
+
 Requirements
 ------------
 
 * Mac OS X or Linux.
 
 * A github account (set in step 3).
+
 
 1. Install Docker
 -----------------
@@ -33,6 +38,7 @@ need to install Boot2docker which requires
 
 If you're using Boot2docker once you've created the vm it will tell you how to export
 variables in your shell in order to be able to communicate with the boot2docker vm.
+
 
 2. Build dependencies
 ---------------------
@@ -104,17 +110,20 @@ To quit following the logs press `Ctrl-C`.
 
 When everything is running open up a browser to http://mp.dev
 
+
 4. Other Manual Steps
 ---------------------
 
 * For fireplace you'll need to manually create a fireplace/src/media/js/settings_local.js
   file, this should look like this: https://gist.github.com/muffinresearch/0555302e210adf6dc760
 
+
 5. Upgrading Docker
 -------------------
 
 For OSX see http://docs.docker.com/installation/mac/#upgrading
 For Windows see: http://docs.docker.com/installation/windows#upgrading
+
 
 6. FAQ
 ------
@@ -221,7 +230,53 @@ you've recently logged-in as::
 
     fig run --rm zamboni python manage.py addusertogroup name@email.com 1
 
-7. Issues
+
+7. Optional Configuration
+-------------------------
+
+Environment Variables
+~~~~~~~~~~~~~~~~~~~~~
+
+To configure the services in the Marketplace, you can either override each
+project's settings file (see documentation on each project for how that would
+look). Or you can alter a few environment variables that all the projects use.
+This is the **recommended approach** for setting up the Marketplace until you
+feel more comfortable with the settings in the Marketplace.
+
+This documentation assumes that you know how to set environment variables on
+your development platform.
+
++----------------------+--------------------+----------------------------+--------------------------------------+
++ Environment variable | Used by            | Description                | Default                              |
++======================+====================+============================+======================================+
+| MARKETPLACE_URL      | Webpay             | URL to nginx               | http://localhost/                    |
++----------------------+--------------------+----------------------------+--------------------------------------+
+| MEMCACHE_URL         | Zamboni, Webpay,   | The location of memcache   | localhost:11211                      |
+|                      | Solitude           |                            |                                      |
++----------------------+--------------------+----------------------------+--------------------------------------+
+| SOLITUDE_DATABASE    | Solitude           | dj_database_url compliant  | mysql://root@localhost:3306/solitude |
+|                      |                    | URL to solitude Mysql      |                                      |
++----------------------+--------------------+----------------------------+--------------------------------------+
+| SOLITUDE_URL         | Zamboni, Webpay    | URL to solitude instance   | http://localhost:2602                |
++----------------------+--------------------+----------------------------+--------------------------------------+
+| SPARTACUS_STATIC     | Webpay             | URL to Spartacus static    | http://localhost:2604                |
+|                      |                    | files                      |                                      |
++----------------------+--------------------+----------------------------+--------------------------------------+
+| ZAMBONI_DATABASE     | Zamboni            | dj_database_url compliant  | mysql://root@localhost:3306/zamboni  |
+|                      |                    | URL to zamboni Mysql       |                                      |
++----------------------+--------------------+----------------------------+--------------------------------------+
+
+Other Environment Variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please be aware that other parts of the site infrastructure can be affected by
+environment variables. Some examples:
+
+* If you want to use custom Django settings, you can set
+  `DJANGO_SETTINGS_MODULE <https://docs.djangoproject.com/en/dev/topics/settings/#designating-the-settings>`_
+
+
+8. Issues
 ---------
 
 Come talk to us on irc://irc.mozilla.org/marketplace if you have questions,

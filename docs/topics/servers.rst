@@ -1,4 +1,4 @@
-Marketplace servers
+Marketplace Servers
 ===================
 
 This document outlines what services the Marketplace has, since these are
