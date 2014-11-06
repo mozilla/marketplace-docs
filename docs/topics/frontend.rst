@@ -21,6 +21,9 @@ This will clone the project, install dependencies, copy assets from Bower into
 the project, create a require.js configuration with paths set up, and start
 a local webserver on port 8675 by default.
 
+
+.. _frontend_firefoxos:
+
 Firefox OS
 ----------
 

@@ -14,38 +14,34 @@ manifest URLs when appropriate).
 Create a New Package
 --------------------
 
-These directions assume you have a copy of `fireplace <https://github.com/mozilla/fireplace>`_
-checked out.
+These directions assume you have a copy of `the Marketplace frontend
+<https://github.com/mozilla/fireplace>`_ checked out.
 
-Assuming you want to make a production package, simply run from the root of your
-fireplace checkout::
+If you want to make a production package (i.e., using the production API),
+simply run from the root of your Fireplace checkout::
 
     make package
 
-For stage or dev servers you could also run any of these::
+Packages will be output to `/package/archives/`. You can also make packages
+for other servers. These are pre-configured within `config.js`::
 
-    make package_dev
-    make package_altdev
-    make package_stage
+    SERVER=altdev make package
+    SERVER=dev make package
+    SERVER=paymentsalt make package
+    SERVER=stage make package
 
-If you are running a local server at something like
-``http://fireplace.loc``, you could build a custom package using
-environment variables. The ``SERVER`` variable will be used to load
-the right settings file so if you set it to ``local``, first make some
-settings::
+If you are running a local backend server (e.g., ``http://mp.dev``), you can
+configure and build a custom package if you wanted. Open `config.js` and add
+an entry to `packageConfig`. It might look like::
 
-    cp src/media/js/settings_local.js.dist src/media/js/settings_package_local.js
+    'local': {
+        domain: 'http://mp.dev',
+        media_url: 'http://mp.dev',
+        name: 'Local',
+        origin: 'app://packaged.local.firefox.com'
+    }
 
-Edit the settings to make sure the API URL is correct. Now create your package::
-
-    SERVER='local' NAME='MktLocal' DOMAIN='fireplace.loc' make package
-
-The ``NAME`` variable sets the application name and it cannot contain spaces.
-
-All of these commands will create packages in `/package/archives/`. The package names
-correspond to the :ref:`Marketplace servers <marketplace-servers-label>`
-or the ``SERVER`` variable. You can then test
-the package in the Simulator using the `App Manager <https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager>`_.
+To test your package, use :ref:`Firefox's WebIDE <frontend_firefoxos>`.
 
 Put the New Package on the Marketplace
 --------------------------------------
