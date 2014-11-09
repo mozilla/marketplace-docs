@@ -5,6 +5,13 @@ High-level developer documentation for the `Firefox Marketplace`_.
 
 .. _`Firefox Marketplace`: https://marketplace.firefox.com/
 
+Related Documentation
+---------------------
+
+* `Firefox Marketplace frontend documentation <https://marketplace-frontend.readthedocs.org>`_
+* `Firefox Marketplace API documentation <https://firefox-marketplace-api.readthedocs.org>`_
+
+
 Contents
 --------
 
@@ -20,11 +27,6 @@ Contents
    topics/servers.rst
    topics/frontend-testing.rst
 
-Related Documentation
----------------------
-
-* `Firefox Marketplace frontend documentation <https://marketplace-frontend.readthedocs.org>`_
-* `Firefox Marketplace API documentation <https://firefox-marketplace-api.readthedocs.org>`_
 
 These docs are also available as a `PDF`_.
 

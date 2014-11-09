@@ -3,7 +3,7 @@
 Marketplace Frontend
 ====================
 
-This section is briefly about setting up the Marketplace frontend
+This section is briefly about setting up the Marketplace frontend.
 For further information about Marketplace frontend projects, check out our
 `dedicated frontend documentation <https://marketplace-frontend.readthedocs.org/>`_.
 
