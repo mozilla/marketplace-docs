@@ -1,7 +1,7 @@
-Firefox Marketplace documentation
-=======================================
+Firefox Marketplace Documentation
+=================================
 
-This documentation broadly covers the `Firefox Marketplace`_.
+High-level developer documentation for the `Firefox Marketplace`_.
 
 .. _`Firefox Marketplace`: https://marketplace.firefox.com/
 
@@ -20,19 +20,11 @@ Contents
    topics/servers.rst
    topics/frontend-testing.rst
 
-What is covered
----------------
+Related Documentation
+---------------------
 
-* How the components that make up the Marketplace work.
-* How they interact.
-* How product features in the Markeplace work.
-* Testing.
-
-What is not covered
--------------------
-
-* Installing each individual component is in that components repository.
-* APIs for each individual component is in that components repository.
+* `Firefox Marketplace frontend documentation <https://marketplace-frontend.readthedocs.org>`_
+* `Firefox Marketplace API documentation <https://firefox-marketplace-api.readthedocs.org>`_
 
 These docs are also available as a `PDF`_.
 

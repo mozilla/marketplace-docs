@@ -3,9 +3,9 @@
 Marketplace Frontend
 ====================
 
-This section is about setting up the Marketplace frontend (i.e., the
-Consumer Pages). The documentation for the Marketplace frontend is a
-work-in-progress.
+This section is briefly about setting up the Marketplace frontend
+For further information about Marketplace frontend projects, check out our
+`dedicated frontend documentation <https://marketplace-frontend.readthedocs.org/>`_.
 
 Setup
 -----

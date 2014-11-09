@@ -1,5 +1,5 @@
-Payments
-========
+Marketplace Payments
+====================
 
 This section is about processing payments on the Marketplace.
 
