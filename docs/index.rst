@@ -8,8 +8,8 @@ High-level developer documentation for the `Firefox Marketplace`_.
 Related Documentation
 ---------------------
 
-* `Firefox Marketplace frontend documentation <https://marketplace-frontend.readthedocs.org>`_
 * `Firefox Marketplace API documentation <https://firefox-marketplace-api.readthedocs.org>`_
+* `Firefox Marketplace frontend documentation <https://marketplace-frontend.readthedocs.org>`_
 
 
 Contents
