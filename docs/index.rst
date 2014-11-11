@@ -24,9 +24,8 @@ Contents
    topics/frontend.rst
    topics/payments.rst
    topics/package.rst
-   topics/servers.rst
-   topics/frontend-testing.rst
    topics/flashing-devices.rst
+   topics/servers.rst
 
 
 These docs are also available as a `PDF`_.
