@@ -26,6 +26,7 @@ Contents
    topics/package.rst
    topics/servers.rst
    topics/frontend-testing.rst
+   topics/flashing-devices.rst
 
 
 These docs are also available as a `PDF`_.
