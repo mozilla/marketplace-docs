@@ -1,8 +1,8 @@
 Flashing Devices
 ================
 
-I have a Flame.  I want to flash the latest trunk build
-_______________________________________________________
+I want to flash the latest build on my device
+---------------------------------------------
 
 First make sure you have adb installed as this is needed for most of the
 following steps. If you need adb here's a guide on `how to install adb (MDN)
@@ -11,8 +11,18 @@ following steps. If you need adb here's a guide on `how to install adb (MDN)
 Plug your phone into your USB cable.  If you run ``adb devices`` you should see a
 device ID.
 
-Run the right kernel
---------------------
+My Tarako isn't recognized
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your Tarako device is not recognized, do the following::
+
+    echo "0x1782" > ~/.android/adb_usb.ini
+    adb kill-server
+    adb start-server
+
+
+Run the right base image for the Flame
+--------------------------------------
 
 There are base `builds <https://developer.mozilla.org/en-US/Firefox_OS/Platform/Architecture>`_
 (this is "gonk"), which is your kernel and such, and there are FirefoxOS builds
@@ -36,7 +46,7 @@ Run the right FirefoxOS build (requires LDAP)
     cd B2G-flash-tool
     ./flash_pvt.py --help
     # Shallow flash an engineering build off the master branch onto the
-    # Flame v180 device.  In theory you won't lose anything...
+    # Flame v188 device.  In theory you won't lose anything...
     ./flash_pvt.py -d flame-kk -v mozilla-central --eng -g -G --keep_profile
 
 Installing older builds if you don't have LDAP access
