@@ -265,6 +265,8 @@ your development platform.
 | ZAMBONI_DATABASE     | Zamboni            | dj_database_url compliant  | mysql://root@localhost:3306/zamboni  |
 |                      |                    | URL to zamboni Mysql       |                                      |
 +----------------------+--------------------+----------------------------+--------------------------------------+
+| RABBIT_HOST          | Rabbit             | Rabbit hostname            | localhost                            |
++----------------------+--------------------+----------------------------+--------------------------------------+
 
 Other Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
