@@ -230,6 +230,21 @@ you've recently logged-in as::
 
     fig run --rm zamboni python manage.py addusertogroup name@email.com 1
 
+How do I upgrade boot2docker?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If boot2docker is running, stop it first with::
+
+  boot2docker stop
+
+To update the docker client install the latest package from
+`here for OSX <https://github.com/boot2docker/osx-installer/releases/latest>`_ or `here for
+windows <https://github.com/boot2docker/windows-installer/releases/latest>`_
+
+You can then upgrade the vm with::
+
+  boot2docker download
+  boot2docker start
 
 7. Optional Configuration
 -------------------------
