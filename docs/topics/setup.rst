@@ -65,6 +65,10 @@ Backend
   Written in Node -
   `source <https://github.com/mozilla/zippy>`_
 
+* **marketplace-docker**: automated Marketplace backend setup using Docker.
+  Uses Docker and fig -
+  `source <https://github.com/mozilla/marketplace-docker>`_
+
 Frontend (Javascript)
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -124,7 +128,7 @@ configuration may look something like this:
 .. image:: ../img/configuration.png
 
 You can find an example configuration file in
-`our Docker repository <https://github.com/mozilla/wharfie/blob/master/images/nginx/nginx.conf>`_.
+`our Docker repository <https://github.com/mozilla/marketplace-docker/blob/master/images/nginx/nginx.conf>`_.
 
 Default Ports
 ~~~~~~~~~~~~~

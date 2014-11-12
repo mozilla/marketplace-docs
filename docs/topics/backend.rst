@@ -45,15 +45,15 @@ variables in your shell in order to be able to communicate with the boot2docker 
 
 Get the code::
 
-    git clone https://github.com/mozilla/wharfie
-    cd wharfie
+    git clone https://github.com/mozilla/marketplace-docker
+    cd marketplace-docker
 
     bin/mkt whoami [your github user name]
     bin/mkt checkout
 
     pip install virtualenvwrapper
-    mkvirtualenv wharfie
-    workon wharfie
+    mkvirtualenv marketplace-docker
+    workon marketplace-docker
     pip install --upgrade pip
     pip install -r requirements.txt
 
@@ -68,7 +68,7 @@ For the code shares to work on OSX you'll need to stop boot2docker and up it wit
 You can verify this by running::
 
     boot2docker ssh
-    # Next navigate to /User/[username]/path/to/wharfie/trees/ and check the dirs for shared sourcecode.
+    # Next navigate to /User/[username]/path/to/marketplace-docker/trees/ and check the dirs for shared sourcecode.
     # Then quit this ssh shell.
 
 Next add a hosts entry for mp.dev (the default host).
@@ -150,7 +150,7 @@ Getting a "Couldn't start container" error
 If you see something like the following on boot2docker/docker::
 
   Cannot start container c44d451fcb58853bd9ef6d13ba4edf100817fce75bbfe7f9c814d68a708d82e3: setup
-  mount namespace bind mounts stat /Users/whatevar/git/wharfie/trees/spartacus: no such file or directory
+  mount namespace bind mounts stat /Users/whatevar/git/marketplace-docker/trees/spartacus: no such file or directory
 
 or something like this::
 
