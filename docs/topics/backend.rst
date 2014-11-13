@@ -113,22 +113,15 @@ To quit following the logs press `Ctrl-C`.
 When everything is running open up a browser to http://mp.dev
 
 
-4. Other Manual Steps
----------------------
-
-* For fireplace you'll need to manually create a fireplace/src/media/js/settings_local.js
-  file, this should look like this: https://gist.github.com/muffinresearch/0555302e210adf6dc760
-
-
-5. Upgrading Docker
--------------------
+Upgrading Docker
+----------------
 
 For OSX see http://docs.docker.com/installation/mac/#upgrading
 For Windows see: http://docs.docker.com/installation/windows#upgrading
 
 
-6. FAQ
-------
+FAQ
+---
 
 Seeing a "Couldn't connect to Docker daemon..." error
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -248,8 +241,8 @@ You can then upgrade the vm with::
   boot2docker download
   boot2docker start
 
-7. Optional Configuration
--------------------------
+Optional Configuration
+----------------------
 
 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~
@@ -295,8 +288,8 @@ environment variables. Some examples:
   `DJANGO_SETTINGS_MODULE <https://docs.djangoproject.com/en/dev/topics/settings/#designating-the-settings>`_
 
 
-8. Issues
----------
+Issues
+------
 
 Come talk to us on irc://irc.mozilla.org/marketplace if you have questions,
 issues, or compliments.
