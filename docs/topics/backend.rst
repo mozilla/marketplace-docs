@@ -73,6 +73,8 @@ You can verify this by running::
 
 Next add a hosts entry for mp.dev (the default host).
 
+::
+
     sudo sh -c "echo $(boot2docker ip 2>/dev/null)  mp.dev >> /etc/hosts"
 
 On Linux
