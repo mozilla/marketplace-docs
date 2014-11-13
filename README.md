@@ -1,8 +1,13 @@
 [![Documentation Status](https://readthedocs.org/projects/marketplace/badge/?version=latest)](https://readthedocs.org/projects/marketplace/?badge=latest)
 
-Docs for the Firefox Marketplace. Please see https://marketplace.readthedocs.org/
+High-level documentation for the Firefox Marketplace. Hosted at
+[marketplace.readthedocs.org](https://marketplace.readthedocs.org)
 
-If you looking for legal docs, please see https://github.com/mozilla/legal-docs
+Other Marketplace documentation repositories include:
+
+- [Marketplace high-level documentation](https://github.com/mozilla/marketplace-docs)
+- [Marketplace API documentation](https://github.com/mozilla/zamboni/tree/docs/api)
+- [Marketplace legal documents](https://github.com/mozilla/legal-docs)
 
 # Building the Documentation
 

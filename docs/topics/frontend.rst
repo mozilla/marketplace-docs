@@ -3,6 +3,9 @@
 Marketplace Frontend
 ====================
 
+.. note:: Check out our complete Marketplace frontend documentation page at
+          `marketplace-frontend.readthedocs.org <https://marketplace-frontend.readthedocs.org>`_.
+
 This section is briefly about setting up the Marketplace frontend.
 For further information about Marketplace frontend projects, check out our
 `dedicated frontend documentation <https://marketplace-frontend.readthedocs.org/>`_.
@@ -14,7 +17,8 @@ Setting up an instance of the Marketplace frontend for development is very
 simple. Note, you will need Node and NPM set up on your machine::
 
     git clone git@github.com:mozilla/fireplace
-    make init
+    npm install
+    make install
     make serve
 
 This will clone the project, install dependencies, copy assets from Bower into
