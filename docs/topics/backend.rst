@@ -34,7 +34,12 @@ Requirements
 
 `Install docker <https://docs.docker.com/installation/>`_. If you're on OSX you'll
 need to install Boot2docker which requires
-`Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_.
+`Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_. You can install this
+easily using `homebrew <http://brew.sh/>`_ with the following::
+
+    brew install caskroom/cask/brew-cask
+    brew cask install virtualbox
+    brew install docker boot2docker
 
 If you're using Boot2docker once you've created the vm it will tell you how to export
 variables in your shell in order to be able to communicate with the boot2docker vm.
