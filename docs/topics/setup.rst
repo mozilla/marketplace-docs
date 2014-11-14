@@ -71,6 +71,10 @@ Backend
   `signer source <https://github.com/mozilla/apk-signer>`_,
   `signer docs <http://apk-signer.readthedocs.org/>`_.
 
+* **marketplace-env**: automated Marketplace backend setup using Docker.
+  Uses Docker and fig -
+  `source <https://github.com/mozilla/marketplace-env>`_
+
 Frontend (Javascript)
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -130,7 +134,7 @@ configuration may look something like this:
 .. image:: ../img/configuration.png
 
 You can find an example configuration file in
-`our Docker repository <https://github.com/mozilla/wharfie/blob/master/images/nginx/nginx.conf>`_.
+`our Docker repository <https://github.com/mozilla/marketplace-env/blob/master/images/nginx/nginx.conf>`_.
 
 Default Ports
 ~~~~~~~~~~~~~

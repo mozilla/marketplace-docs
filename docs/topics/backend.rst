@@ -50,15 +50,15 @@ variables in your shell in order to be able to communicate with the boot2docker 
 
 Get the code::
 
-    git clone https://github.com/mozilla/wharfie
-    cd wharfie
+    git clone https://github.com/mozilla/marketplace-env
+    cd marketplace-env
 
     bin/mkt whoami [your github user name]
     bin/mkt checkout
 
     pip install virtualenvwrapper
-    mkvirtualenv wharfie
-    workon wharfie
+    mkvirtualenv marketplace-env
+    workon marketplace-env
     pip install --upgrade pip
     pip install -r requirements.txt
 
@@ -161,7 +161,7 @@ Getting a "Couldn't start container" error
 If you see something like the following on boot2docker/docker::
 
   Cannot start container c44d451fcb58853bd9ef6d13ba4edf100817fce75bbfe7f9c814d68a708d82e3: setup
-  mount namespace bind mounts stat /Users/whatevar/git/wharfie/trees/spartacus: no such file or directory
+  mount namespace bind mounts stat /Users/whatevar/git/marketplace-env/trees/spartacus: no such file or directory
 
 or something like this::
 
