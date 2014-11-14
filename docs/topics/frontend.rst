@@ -41,14 +41,6 @@ To generate a package (i.e., a Marketplace app to install on the device)::
 
 Then install the package onto the device using WebIDE.
 
-Caching
--------
-
-To prevent Fireplace from trying to access your cache for API calls locally,
-add the following to ``src/media/js/settings_local.js``::
-
-    api_cdn_whitelist: {}
-
 Android
 -------
 
