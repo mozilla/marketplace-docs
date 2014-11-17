@@ -24,7 +24,7 @@ Contents
    topics/frontend.rst
    topics/payments.rst
    topics/package.rst
-   topics/flashing-devices.rst
+   topics/working-with-devices.rst
    topics/servers.rst
 
 
