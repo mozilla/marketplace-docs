@@ -1,5 +1,5 @@
-Flashing Devices
-================
+Working With Devices
+====================
 
 I want to flash the latest build on my device
 ---------------------------------------------
@@ -108,6 +108,62 @@ As this is the user build the developers menu is not visible by default.
 To remedy this (once it boots) go to "Device Information -> More information".
 Scroll to bottom and enable developer menu. Then enable USB Debugging in the
 dev menu + check console enabled + enable Marketplace reviewer certs. Then reboot.
+
+.. _marketplace-backend-on-device:
+
+Accessing Your Local Marketplace From Device
+--------------------------------------------
+
+If you want to access your local :ref:`Marketplace Backend <backend>` on a device,
+you'll need to proxy the internal virtual server through a public IP and bind
+that IP to a host on device.
+
+If you run Apache on port 80 which is the default on many systems, you can
+add this to your config to proxy. Adjust the internal IP address of the virtual
+server as necessary.
+
+::
+
+    Listen 80
+
+    <VirtualHost *:80>
+        ServerName mp.dev
+        ProxyPreserveHost On
+        ProxyRequests off
+        ProxyPass / http://192.168.59.103/
+        ProxyPassReverse / http://192.168.59.103/
+    </VirtualHost>
+
+If you run `nginx <http://nginx.org/>`_ on port 80 then you can use
+a config like this. Again, you may need to adjust the proxied IP.
+
+::
+
+    http {
+        server {
+            listen       80 default;
+            server_name  mp.dev;
+
+            location / {
+                # Pass public connections to the internal
+                # Docker / VirtualBox server.
+                proxy_pass http://192.168.59.103/;
+                proxy_set_header Host $host;
+            }
+        }
+    }
+
+When running Docker and serving on your public / network IP
+(let's say 10.0.0.1), ensure USB debugging is turned on for your device,
+plug it in, and use the bind command like this::
+
+    bin/mkt bind
+
+This will edit the ``/system/etc/hosts`` file on the device so that
+you can access http://mp.dev .
+
+If you have multiple network devices, the command will prompt you for
+the one to bind to. Run ``bin/mkt bind --help`` for details.
 
 Prefs file for payments testing
 -------------------------------
