@@ -60,16 +60,21 @@ Get the code::
 On OSX
 ~~~~~~
 
-For the code shares to work on OSX you'll need to stop boot2docker and up it with the command::
+For the code shares to work on OSX you'll need to run boot2docker with the following command::
 
-    boot2docker stop
     boot2docker up --vbox-share="$(pwd)/trees=trees"
+    
+To enable this share on the vm run::
+
+    boot2docker ssh "sudo mkdir -p $(pwd)/trees && sudo mount -t vboxsf -o uid=1000,gid=50 trees $(pwd)/trees"
 
 You can verify this by running::
 
     boot2docker ssh
     # Next navigate to /User/[username]/path/to/wharfie/trees/ and check the dirs for shared sourcecode.
-    # Then quit this ssh shell.
+    # Then quit this ssh shell with `ctrl+c`
+
+Alternatively you can run `boot2docker up` without any args and it will share `/Users` in it's entirety. 
 
 Next add a hosts entry for mp.dev (the default host).
 
