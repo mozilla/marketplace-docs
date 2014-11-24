@@ -1,44 +1,33 @@
 Working With Devices
 ====================
 
-I want to flash the latest build on my device
----------------------------------------------
+Flashing the Latest Build
+-------------------------
 
-First make sure you have adb installed as this is needed for most of the
-following steps. If you need adb here's a guide on `how to install adb (MDN)
-<https://developer.mozilla.org/en-US/Firefox_OS/Debugging/Installing_ADB>`_
+Have ADB installed. You can learn
+`how to install adb <https://developer.mozilla.org/Firefox_OS/Debugging/Installing_ADB>`_
+on MDN.
 
-Plug your phone into your USB cable.  If you run ``adb devices`` you should see a
-device ID.
+Connect your phone to your machine with a USB cable. If you run ``adb devices``
+you should see a device ID.
 
-My Tarako isn't recognized
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Flashing the Flame
+~~~~~~~~~~~~~~~~~~
 
-If your Tarako device is not recognized, do the following::
+There are `base builds <https://developer.mozilla.org/Firefox_OS/Platform/Architecture>`_
+, which contains the kernel, and there are FirefoxOS builds which are run on
+top of the base build.
 
-    echo "0x1782" > ~/.android/adb_usb.ini
-    adb kill-server
-    adb start-server
-
-
-Run the right base image for the Flame
---------------------------------------
-
-There are base `builds <https://developer.mozilla.org/en-US/Firefox_OS/Platform/Architecture>`_
-(this is "gonk"), which is your kernel and such, and there are FirefoxOS builds
-which we run on top of that base build.  Flames shipped with a base build on an
-old Android kernel (v123) which we don't support anymore.  Let's make sure
-we're running the new v188 build.
-`Here are easy directions <https://developer.mozilla.org/en-US/Firefox_OS/Developer_phone_guide/Flame#Updating_your_Flame%27s_software>`_.
+Flames with a base build on an old Android kernel (v123) are no longer
+supported by us. Make sure to `run with the newer v188 build <https://developer.mozilla.org/Firefox_OS/Developer_phone_guide/Flame#Updating_your_Flame%27s_software>`_.
 
 .. note::
 
     You will lose everything on the device when you do this.
-    Once you are running v188 you don't need to do this step
+    Once you are running v188, you don't need to do this step
     again until we update to a new kernel (probably a year or two)
 
-Run the right FirefoxOS build (requires LDAP)
----------------------------------------------
+Then to run with the correct FirefoxOS build for the flame (requires LDAP):
 
 .. sourcecode:: shell
 
@@ -49,8 +38,8 @@ Run the right FirefoxOS build (requires LDAP)
     # Flame v188 device.  In theory you won't lose anything...
     ./flash_pvt.py -d flame-kk -v mozilla-central --eng -g -G --keep_profile
 
-Installing older builds if you don't have LDAP access
------------------------------------------------------
+Flashing without LDAP Access
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Find the build you want from http://ftp.mozilla.org/pub/mozilla.org/b2g/nightly/ and install (preferably an eng build)
 * unzip the file
@@ -58,71 +47,76 @@ Installing older builds if you don't have LDAP access
 * run ``./flash.sh``
 * Phone should be installed with the latest gaia build you chose.
 
-Enable dev/stage certificates
------------------------------
+
+Enabling Dev and Stage Certificates
+-----------------------------------
 
 FxOS version: 1.1 - 1.4
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Then follow this guide: https://wiki.mozilla.org/Marketplace/Reviewers/Apps/Guide/Setup/Cert_installation
+Follow: https://wiki.mozilla.org/Marketplace/Reviewers/Apps/Guide/Setup/Cert_installation
 
 FxOS version: 2.0
 ~~~~~~~~~~~~~~~~~
 
-You don't need to install certificates; the system ``preference dom.mozApps.use_reviewer_certs`` just needs to be set to true.
+You don't need to install certificates; the system preference
+``dom.mozApps.use_reviewer_certs`` just needs to be set to true.
 
-* Connect the device with a USB cable and install any drivers needed.
-* Open a command/terminal window
-* type ``adb shell`` and then the following commands to set the preference::
+* Connect the device with a USB cable and install any drivers
+* Open a shell
+* Run ``adb shell`` and then the following to set the preference::
 
     stop b2g
     cd /data/b2g/mozilla/\*.default/
     echo 'user_pref("dom.mozApps.use_reviewer_certs", true);' >> prefs.js
     start b2g
 
-
 FZOS version: 2.1+
 ~~~~~~~~~~~~~~~~~~
 
 Enable the checkbox: `Settings -> Developer -> Use Marketplace reviewer certs`
 
-Working around not being able to install -dev or stage on eng builds
---------------------------------------------------------------------
+
+Installing Dev and Stage on Engineering Builds
+----------------------------------------------
 
 .. note::
 
-    Some testers have had trouble with this, and the flashes user gaia+gecko fails to boot. Proceed with caution.
+    Some testers have had trouble with this, and flashing user gaia+gecko
+    fails to boot. Proceed with caution.
 
-Eng builds (As of 16th Oct 2014) have old -dev and stage marketplace
-apps installed and you can't remove them.
+Engineering builds (as of 16 Oct 2014) have old Dev and Stage Marketplace apps
+installed, and they cannot be removed.
 
-To work around this we need the root abilities of the eng image (otherwise
-we can't push custom prefs e.g. for payments) + the UI and apps from the user
+To work around this, we need root access on the engineering image in order to
+push custom prefs (e.g., for payments), and the UI and apps from the user
 build.
 
-First flash a full eng image first (Referred to as "images" as opposed to
-"gaia+gecko"). Once that's complete, flash a user build of just
-"gaia+gecko" of the same build.
+To do so, flash a full engineering image (referred to as "images" as opposed to
+"gaia+gecko"). Then flash a user build of just "gaia+gecko" of the same build.
+Since this the user build, the developer menu is hidden by default. To remedy
+this:
 
-As this is the user build the developers menu is not visible by default.
-To remedy this (once it boots) go to "Device Information -> More information".
-Scroll to bottom and enable developer menu. Then enable USB Debugging in the
-dev menu + check console enabled + enable Marketplace reviewer certs. Then reboot.
+- Go to "Device Information -> More information"
+- Scroll to bottom and enable developer menu
+- Enable USB Debugging in the dev menu
+- Check console enabled
+- Enable Marketplace reviewer certs
+- Reboot
+
 
 .. _marketplace-backend-on-device:
 
 Accessing Your Local Marketplace From Device
 --------------------------------------------
 
-If you want to access your local :ref:`Marketplace Backend <backend>` on a device,
-you'll need to proxy the internal virtual server through a public IP and bind
-that IP to a host on device.
+If you want to access your local :ref:`Marketplace Backend <backend>` on a
+device, you'll need to proxy the internal virtual server through a public IP
+and bind that IP to a host on device.
 
-If you run Apache on port 80 which is the default on many systems, you can
-add this to your config to proxy. Adjust the internal IP address of the virtual
-server as necessary.
-
-::
+If you run Apache on port 80 which is the default on many systems, you can add
+this to your config to proxy. Adjust the internal IP address of the virtual
+server as necessary.::
 
     Listen 80
 
@@ -135,9 +129,7 @@ server as necessary.
     </VirtualHost>
 
 If you run `nginx <http://nginx.org/>`_ on port 80 then you can use
-a config like this. Again, you may need to adjust the proxied IP.
-
-::
+a config like this. Again, you may need to adjust the proxied IP::
 
     http {
         server {
@@ -153,19 +145,20 @@ a config like this. Again, you may need to adjust the proxied IP.
         }
     }
 
-When running Docker and serving on your public / network IP
-(let's say 10.0.0.1), ensure USB debugging is turned on for your device,
-plug it in, and use the bind command like this::
+When running Docker and serving on your public / network IP (sucha s
+10.0.0.1), ensure USB debugging is enabled on your device, plug it in, and
+use the bind command::
 
     bin/mkt bind
 
-This will edit the ``/system/etc/hosts`` file on the device so that
-you can access http://mp.dev .
+This will edit the ``/system/etc/hosts`` file on the device so that you can
+access http://mp.dev.
 
 If you have multiple network devices, the command will prompt you for
 the one to bind to. Run ``bin/mkt bind --help`` for details.
 
-Prefs file for payments testing
+
+Prefs File for Payments Testing
 -------------------------------
 
 Here's an example prefs file for payments testing:
@@ -179,16 +172,27 @@ Then reboot for the changes to take effect::
 
     adb reboot
 
-Installing -dev + stage + payments-alt
---------------------------------------
 
-These apps are on the production marketplace but are hidden.
-Metaplace can be installed which should allow you to install the apps from
-the "jump" menu. (see https://metaplace.paas.allizom.org).
+Installing Packaged Marketplaces
+--------------------------------
 
-If you have trouble with this then you can directly go to the
-apps in the prod marketplace from the browser on device.
+Apps such as Dev or Stage or PaymentsAlt, are unlisted on the production
+Marketplace. Though, `Metaplace <https://metaplace.paas.allizom.org>`_ can be
+installed which allows you to install the apps from the "jump" menu.
 
-* dev: https://marketplace.firefox.com/app/mkt-dev
-* stage: https://marketplace.firefox.com/app/mkt-stage
-* payments-alt: https://marketplace.firefox.com/app/marketplace-payments-alt
+Or you can go directly to the app page from the browser on the device:
+
+* Dev: https://marketplace.firefox.com/app/mkt-dev
+* Stage: https://marketplace.firefox.com/app/mkt-stage
+* PaymentsAlt: https://marketplace.firefox.com/app/marketplace-payments-alt
+
+
+Device Not Being Recognized
+---------------------------
+
+If your Tarako device is not recognized, add the vendor ID to the ADB USB
+configuration::
+
+    echo "0x1782" > ~/.android/adb_usb.ini
+    adb kill-server
+    adb start-server
