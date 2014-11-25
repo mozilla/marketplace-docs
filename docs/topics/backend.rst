@@ -52,15 +52,15 @@ Get the code::
 
     git clone https://github.com/mozilla/marketplace-env
     cd marketplace-env
-
-    bin/mkt whoami [your github user name]
-    bin/mkt checkout
-
+    
     pip install virtualenvwrapper
     mkvirtualenv marketplace-env
     workon marketplace-env
     pip install --upgrade pip
     pip install -r requirements.txt
+
+    bin/mkt whoami [your github user name]
+    bin/mkt checkout
 
 On OSX
 ~~~~~~
