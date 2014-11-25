@@ -41,9 +41,9 @@ Backend
   `docs <https://zamboni.readthedocs.org>`_,
   `API docs <https://firefox-marketplace-api.readthedocs.org>`_.
 
-* **Flue**: a fake API backend used for testing.
+* **Marketplace API Mock**: a fake API backend used for frontend testing.
   Written in Python with Flask -
-  `source <https://github.com/mozilla/flue>`_.
+  `source <https://github.com/mozilla/marketplace-api-mock>`_.
 
 * **Monolith**: storage and query server for statistics around the Marketplace.
   Written in Python -
