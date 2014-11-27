@@ -50,17 +50,28 @@ variables in your shell in order to be able to communicate with the boot2docker 
 
 Get the code::
 
-    git clone https://github.com/mozilla/marketplace-env
-    cd marketplace-env
-    
-    pip install virtualenvwrapper
-    mkvirtualenv marketplace-env
-    workon marketplace-env
-    pip install --upgrade pip
-    pip install -r requirements.txt
+    pip install marketplace-env
 
-    bin/mkt whoami [your github user name]
-    bin/mkt checkout
+Do you already have all the repositories checked out?
+
+*Yes*::
+
+    mkt root [path to the directory containing your repositories]
+
+*No*::
+
+    mkdir [path to a directory to create the repositories in]
+    mkt root [path entered in the previous command]
+    mkt whoami [your github user name]
+    mkt checkout
+
+Set two environment variables::
+
+    export FIG_FILE=~/.fig.mkt.yml
+    export FIG_PROJECT_NAME=mkt
+
+It is recommended that you change your environment variables in your profile so
+that they persist and are consistent.
 
 On OSX
 ~~~~~~
@@ -112,7 +123,7 @@ Run::
 
 Next, to run all the services run::
 
-    fig up -d
+    mkt up
 
 Alternatively if you would like all the service logs in the foreground run::
 
@@ -121,7 +132,7 @@ Alternatively if you would like all the service logs in the foreground run::
 Generally running things in the background is preferred. When running services
 in the background if you want to see the logs for a given service run::
 
-    docker logs -f $(docker ps | grep zamboni | awk '{print $1}')
+    fig logs [service name]
 
 To quit following the logs press `Ctrl-C`.
 
