@@ -1,5 +1,5 @@
-Setup
-=====
+Overview
+========
 
 The Firefox Marketplace is a collection of services and repositories that
 together form the Marketplace.
@@ -120,49 +120,3 @@ Frontend Components (Javascript)
 * **marketplace-constants**: shared constants between the backend and frontend.
   Written in Python -
   `source <https://github.com/mozilla/marketplace-constants>`_.
-
-Serving With Nginx
-~~~~~~~~~~~~~~~~~~
-
-Marketplace is designed to be an app accessible at one domain, hitting Nginx.
-
-Behind the scenes Nginx will proxy to the other servers on your behalf.
-
-Most developers are using Nginx to serve out the multiple services. Your
-configuration may look something like this:
-
-.. image:: ../img/configuration.png
-
-You can find an example configuration file in
-`our Docker repository <https://github.com/mozilla/marketplace-env/blob/master/images/nginx/nginx.conf>`_.
-
-Default Ports
-~~~~~~~~~~~~~
-
-By default, the services listen to the following ports:
-
-+---------------------+--------+
-| Project             | Port   |
-+=====================+========+
-| Zamboni             | 2600   |
-+---------------------+--------+
-| Webpay              | 2601   |
-+---------------------+--------+
-| Solitude            | 2602   |
-+---------------------+--------+
-| Solitude Proxy      | 2603   |
-+---------------------+--------+
-| Spartacus           | 2604   |
-+---------------------+--------+
-| Zippy               | 2605   |
-+---------------------+--------+
-| Fireplace           | 8675   |
-+---------------------+--------+
-| Commbadge           | 8676   |
-+---------------------+--------+
-| Statistics          | 8677   |
-+---------------------+--------+
-| Transonic           | 8678   |
-+---------------------+--------+
-| Operator Dashboard  | 8679   |
-+---------------------+--------+
