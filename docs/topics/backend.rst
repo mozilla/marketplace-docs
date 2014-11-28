@@ -28,12 +28,18 @@ Requirements
 
 * A github account (set in step 3).
 
+* packages: python2.7, python-pip, curl, python-dev
+
 
 1. Install Docker
 -----------------
 
-`Install docker <https://docs.docker.com/installation/>`_. If you're on OSX you'll
-need to install Boot2docker which requires
+`Install docker <https://docs.docker.com/installation/>`_. 
+
+On OSX
+~~~~~~
+
+You'll need to install Boot2docker which requires
 `Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_. You can install this
 easily using `homebrew <http://brew.sh/>`_ with the following::
 
@@ -44,6 +50,18 @@ easily using `homebrew <http://brew.sh/>`_ with the following::
 If you're using Boot2docker once you've created the vm it will tell you how to export
 variables in your shell in order to be able to communicate with the boot2docker vm.
 
+On Linux
+~~~~~~~~
+
+See the `different instructions <https://docs.docker.com/installation/>`_ for your distribution.
+
+The generic install curl-able script is
+
+    curl -sSL https://get.docker.com/ | sh
+
+Ubuntu specific is
+
+    curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 
 2. Build dependencies
 ---------------------
