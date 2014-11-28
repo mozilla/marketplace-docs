@@ -67,7 +67,7 @@ Do you already have all the repositories checked out?
 
 Set two environment variables::
 
-    export FIG_FILE=~/.fig.mkt.yml
+    export FIG_FILE=~/.mkt.fig.yml
     export FIG_PROJECT_NAME=mkt
 
 It is recommended that you change your environment variables in your profile so
