@@ -55,11 +55,11 @@ On Linux
 
 See the `different instructions <https://docs.docker.com/installation/>`_ for your distribution.
 
-The generic install curl-able script is
+The generic install curl-able script is::
 
     curl -sSL https://get.docker.com/ | sh
 
-Ubuntu specific is
+Ubuntu specific is::
 
     curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 
