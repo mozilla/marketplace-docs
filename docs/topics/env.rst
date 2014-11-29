@@ -211,6 +211,8 @@ your development platform.
 | MEMCACHE_URL         | Zamboni, Webpay,   | The location of memcache   | localhost:11211                      |
 |                      | Solitude           |                            |                                      |
 +----------------------+--------------------+----------------------------+--------------------------------------+
+| REDIS_URL            | Zamboni            | URL to redis               | redis://localhost:6379               |
++----------------------+--------------------+----------------------------+--------------------------------------+
 | SOLITUDE_DATABASE    | Solitude           | dj_database_url compliant  | mysql://root@localhost:3306/solitude |
 |                      |                    | URL to solitude Mysql      |                                      |
 +----------------------+--------------------+----------------------------+--------------------------------------+

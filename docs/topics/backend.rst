@@ -32,7 +32,7 @@ Requirements
 1. Install Docker
 -----------------
 
-`Install docker <https://docs.docker.com/installation/>`_. 
+`Install docker <https://docs.docker.com/installation/>`_.
 
 On OSX
 ~~~~~~
