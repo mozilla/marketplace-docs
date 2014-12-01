@@ -76,7 +76,7 @@ that they persist and are consistent.
 On OSX
 ~~~~~~
 
-You'll need to share the project path setup in step 2 with docker. Subsitute
+You'll need to share the project path setup in step 2 with docker. Substitute
 [path] in the following commands with the [path] in step 2.
 
 For the code shares to work on OSX you'll need to run boot2docker with the following command::
