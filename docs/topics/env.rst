@@ -55,6 +55,15 @@ the ways down.
 
     Updates the `fig` configuration file if needed. Then runs `fig up -d`.
 
+Shell Completion
+~~~~~~~~~~~~~~~~
+
+Shell completion for the mkt command is now included. To activate it you can
+add the following to your shell profile::
+
+  eval "$(register-python-argcomplete mkt)"
+
+
 `fig` Commands
 ~~~~~~~~~~~~~~
 
