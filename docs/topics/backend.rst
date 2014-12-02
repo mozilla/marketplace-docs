@@ -94,13 +94,16 @@ that they persist and are consistent.
 On OSX
 ~~~~~~
 
+You'll need to share the project path setup in step 2 with docker. Substitute
+[path] in the following commands with the [path] in step 2.
+
 For the code shares to work on OSX you'll need to run boot2docker with the following command::
 
-    boot2docker up --vbox-share="$(pwd)/trees=trees"
+    boot2docker up --vbox-share="[path]=trees"
 
 To enable this share on the vm run::
 
-    boot2docker ssh "sudo mkdir -p $(pwd)/trees && sudo mount -t vboxsf -o uid=1000,gid=50 trees $(pwd)/trees"
+    boot2docker ssh "sudo mkdir -p [path]/trees && sudo mount -t vboxsf -o uid=1000,gid=50 trees [path]/trees"
 
 You can verify this by running::
 
