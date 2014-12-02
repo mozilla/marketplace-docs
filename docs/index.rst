@@ -21,6 +21,7 @@ Contents
    topics/contributing.rst
    topics/setup.rst
    topics/backend.rst
+   topics/env.rst
    topics/frontend.rst
    topics/payments.rst
    topics/package.rst
