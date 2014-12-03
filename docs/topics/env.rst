@@ -17,13 +17,16 @@ the ways down.
 `mkt` Commands
 ~~~~~~~~~~~~~~
 
-.. function:: mkt check
+.. function:: mkt check [--services]
 
     Checks your configuration, namely:
 
     * environment variables are set correctly
     * project checkouts (zamboni etc) can be found
     * images can be found
+
+    Optionally, if you set the `services` flag, it will check the monitor web
+    page for each service.
 
 .. function:: mkt chkgitconfig
 
@@ -32,7 +35,14 @@ the ways down.
 .. function:: mkt checkout
 
     Checks out all the projects from github, using the user set with the `whoami`
-    command into the path defined with the `root` command.
+    command into the path defined with the `root` command. User is set to
+    `mozilla` if not defined, so you don't have to fork the projects.
+
+.. function:: mkt bash [project]
+
+    Enters the container for the project and runs bash. If the project is not
+    defined, it searches current and parent directories to find a `Dockerfile`,
+    it then uses that directory name as the project.
 
 .. function:: mkt bind
 
@@ -47,9 +57,20 @@ the ways down.
     new configuration file. The directory can be relative and include shell
     variables such as ~.
 
+.. function:: mkt update [--git] [--migrations]
+
+    Updates the projects by:
+
+    * iterates through each project and runs `git pull`
+    * runs schematic migrations on each applicable project
+
+    Optionally, if you set the `git` or `migrations` flag, it will run those
+    commands only.
+
 .. function:: mkt whoami [user name]
 
-    Set the user to checkout projects from github, used by `checkout`
+    Set the user to checkout projects from github, used by `checkout`. If
+    `user name` is not set, it prints outs the user that is currently set.
 
 .. function:: mkt up
 
