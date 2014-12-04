@@ -1,7 +1,7 @@
 .. _env:
 
-Marketplace Backend details
-===============================
+Marketplace Backend Details
+===========================
 
 marketplace-env
 ---------------
