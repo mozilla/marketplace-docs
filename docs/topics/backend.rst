@@ -97,11 +97,11 @@ You'll need to share the project path setup in step 2 with docker. Substitute
 
 For the code shares to work on OSX you'll need to run boot2docker with the following command::
 
-    boot2docker up --vbox-share="[path]=trees"
+    boot2docker up --vbox-share="$(mkt root)=trees"
 
 To enable this share on the vm run::
 
-    boot2docker ssh "sudo mkdir -p [path]/trees && sudo mount -t vboxsf -o uid=1000,gid=50 trees [path]/trees"
+    boot2docker ssh "sudo mkdir -p $(mkt root) && sudo mount -t vboxsf -o uid=1000,gid=50 trees $(mkt root)"
 
 You can verify this by running::
 
@@ -129,16 +129,9 @@ Add a hosts entry for localhost::
 
 Run::
 
-    fig build
-
-.. note:: This can take a long time the first time.
-
-Next, to run all the services run::
-
     mkt up
 
-To quit following the logs press `Ctrl-C`.
-
+.. note:: This can take a long time the first time.
 
 When everything is running open up a browser to http://mp.dev
 
