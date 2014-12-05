@@ -129,9 +129,13 @@ Add a hosts entry for localhost::
 
 Run::
 
-    mkt up
+    fig build
 
 .. note:: This can take a long time the first time.
+
+Next, to run all the services run::
+
+    mkt up
 
 When everything is running open up a browser to http://mp.dev
 
