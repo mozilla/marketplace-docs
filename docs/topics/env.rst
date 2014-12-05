@@ -17,27 +17,6 @@ the ways down.
 `mkt` Commands
 ~~~~~~~~~~~~~~
 
-.. function:: mkt check [--services]
-
-    Checks your configuration, namely:
-
-    * environment variables are set correctly
-    * project checkouts (zamboni etc) can be found
-    * images can be found
-
-    Optionally, if you set the `services` flag, it will check the monitor web
-    page for each service.
-
-.. function:: mkt chkgitconfig
-
-    Prints out the git configuration of each tree element.
-
-.. function:: mkt checkout
-
-    Checks out all the projects from github, using the user set with the `whoami`
-    command into the path defined with the `root` command. User is set to
-    `mozilla` if not defined, so you don't have to fork the projects.
-
 .. function:: mkt bash [project]
 
     Enters the container for the project and runs bash. If the project is not
@@ -51,11 +30,41 @@ the ways down.
     See the :ref:`device binding <marketplace-backend-on-device>` section
     for details on how to edit the device hosts file.
 
+.. function:: mkt check [--services]
+
+    Checks your configuration, namely:
+
+    * environment variables are set correctly
+    * project checkouts (zamboni etc) can be found
+    * images can be found
+
+    Optionally, if you set the `services` flag, it will check the monitor web
+    page for each service.
+
+.. function:: mkt checkout
+
+    Checks out all the projects from github, using the user set with the `whoami`
+    command into the path defined with the `root` command. User is set to
+    `mozilla` if not defined, so you don't have to fork the projects.
+
+.. function:: mkt chkgitconfig
+
+    Prints out the git configuration of each tree element.
+
+.. function:: mkt revs
+
+    Prints out the current revisions of the tress under `mkt root`
+    detailing both the rev and the active branch.
+
 .. function:: mkt root [directory]
 
     Sets the location of project checkouts to `path`. Then creates a
     new configuration file. The directory can be relative and include shell
     variables such as ~.
+
+.. function:: mkt up
+
+    Updates the `fig` configuration file if needed. Then runs `fig up -d`.
 
 .. function:: mkt update [--git] [--migrations]
 
@@ -72,9 +81,6 @@ the ways down.
     Set the user to checkout projects from github, used by `checkout`. If
     `user name` is not set, it prints outs the user that is currently set.
 
-.. function:: mkt up
-
-    Updates the `fig` configuration file if needed. Then runs `fig up -d`.
 
 Shell Completion
 ~~~~~~~~~~~~~~~~
