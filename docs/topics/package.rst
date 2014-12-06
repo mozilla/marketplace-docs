@@ -7,7 +7,7 @@ Building the Packaged App
 The Marketplace that ships on Firefox OS is a packaged app which needs to
 be built from `fireplace <https://github.com/mozilla/fireplace>`_.  (Side note:
 There is a lightweight version of the Marketplace called
-`yogafire <https://github.com/mozilla.yogafire>`_ which you may also be wanting
+`yogafire <https://github.com/mozilla/yogafire>`_ which you may also be wanting
 to build.  It follows these same steps, except you'll need to swap out the right
 manifest URLs when appropriate).
 
