@@ -52,9 +52,9 @@ Backend
 
 * **Webpay** and **Solitude**: servers for processing payments for the Marketplace.
   Written in Python with Django -
-  `webpay source <https://github.com/mozilla/solitude/>`_,
+  `webpay source <https://github.com/mozilla/webpay/>`_,
   `webpay docs <https://webpay.readthedocs.org>`_,
-  `solitude source <https://github.com/mozilla/webpay/>`_,
+  `solitude source <https://github.com/mozilla/solitude/>`_,
   `solitude docs <https://solitude.readthedocs.org>`_.
 
 * **Trunion**: a signing service for app receipts and packaged apps.
