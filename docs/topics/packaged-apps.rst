@@ -1,8 +1,7 @@
 .. _package:
 
-=========================
-Building the Packaged App
-=========================
+Packaged Apps
+=============
 
 The Marketplace that ships on Firefox OS is a packaged app which needs to
 be built from `fireplace <https://github.com/mozilla/fireplace>`_.  (Side note:

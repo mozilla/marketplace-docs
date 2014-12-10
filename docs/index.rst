@@ -19,14 +19,13 @@ Contents
    :maxdepth: 2
 
    topics/contributing.rst
-   topics/setup.rst
+   topics/overview.rst
    topics/backend.rst
-   topics/env.rst
+   topics/backend-details.rst
    topics/frontend.rst
    topics/payments.rst
-   topics/package.rst
+   topics/packaged-apps.rst
    topics/working-with-devices.rst
-   topics/servers.rst
 
 
 These docs are also available as a `PDF`_.

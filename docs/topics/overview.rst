@@ -12,16 +12,16 @@ you can set up both the backend and frontend, and point your frontend towards
 the backend set up by Docker.
 
 
-Setting up the Marketplace Backend
-----------------------------------
+Setting up the Backend
+----------------------
 
 If you want to work on the backend, the API, or the payments infrastructure,
-visit our :ref:`backend` documentation. It will explain how to set up Docker as
-it automates the setup of the Marketplace environment.
+visit our :ref:`backend` documentation. It will explain how to
+set up Docker as it automates the setup of the Marketplace environment.
 
 
-Setting up the Marketplace Frontend
------------------------------------
+Setting up the Frontend
+-----------------------
 
 If you want to work on the consumer-facing Marketplace frontend, visit our
 :ref:`frontend` documentation. It only takes three commands to get things
@@ -120,3 +120,30 @@ Frontend Components (Javascript)
 * **marketplace-constants**: shared constants between the backend and frontend.
   Written in Python -
   `source <https://github.com/mozilla/marketplace-constants>`_.
+
+* **marketplace-elements**: web component UI elements
+  Written in Javascript -
+  `source <https://github.com/mozilla/marketplace-elements>`_.
+
+
+Marketplace Servers
+-------------------
+
+Marketplace's servers are outlined below For specifics of our production
+configuration, please see the `Services documentation
+<https://mana.mozilla.org/wiki/display/websites/Services>`_ (only visible to
+Mozilla employees).
+
+* `dev <https://marketplace-dev.allizom.org>`_: updated each commit.
+* `alt dev <https://marketplace-altdev.allizom.org>`_: updated each commit.
+  Used for testing disruptive development features.
+* `landfill <https://landfill-mkt.allizom.org/>`_: used to populate a test
+  database which can be used with the `install landfill` command in zamboni.
+* `stage <https://marketplace.allizom.org>`_: updated when tags are made. This
+  is as similar to production as possible. Used for testing features before
+  they go to production. Uses real money for payments.
+* `payments alt <http://payments-alt.allizom.org/>`_: updated each commit.
+  Used for testing dispruptive payments features. Uses real money for payments.
+* `production <http://marketplace.firefox.com>`_: updated as per the `push
+  schedule <https://wiki.mozilla.org/Marketplace/PushDuty>`_. The production
+  servers are the only ones with any uptime expectations.
