@@ -21,7 +21,7 @@ simply run from the root of your Fireplace checkout::
 
     make package
 
-Packages will be output to `/package/archives/`. You can also make packages
+Packages will be output to `/package/builds/`. You can also make packages
 for other servers. These are pre-configured within `config.js`::
 
     SERVER=altdev make package
