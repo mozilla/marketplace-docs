@@ -30,7 +30,7 @@ the ways down.
     See the :ref:`device binding <marketplace-backend-on-device>` section
     for details on how to edit the device hosts file.
 
-.. function:: mkt check [--services]
+.. function:: mkt check [--services] [--requirements]
 
     Checks your configuration, namely:
 
@@ -38,8 +38,11 @@ the ways down.
     * project checkouts (zamboni etc) can be found
     * images can be found
 
-    Optionally, if you set the `services` flag, it will check the monitor web
-    page for each service.
+    Optionally flags:
+
+    * `services` checks the nagios monitor end point for each service
+    * `requirements` compares python and JS requirements files in the container
+      against the project and recommends which containers should be rebuilt
 
 .. function:: mkt checkout
 
