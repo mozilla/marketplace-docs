@@ -17,7 +17,7 @@ Marketplace:
 * Work on your bug. Feel free to reach out to over Marketplace developers on `IRC in the #marketplace channel <https://wiki.mozilla.org/IRC>`_, `mailing lists <https://lists.mozilla.org/listinfo/dev-marketplace>`_, or on the bug itself.
  * Write unit tests if appropriate.
  * For code changes, ensure that you follow the `Mozilla WebDev style guide <http://mozweb.readthedocs.org/en/latest/>`_.
- * For visual changes, ensure that you follow the `Maketplace Design style guide <http://pwalm.github.io/marketplace-style-guides/index.html>`_.
+ * For visual changes, ensure that you follow the `Maketplace Design style guide <http://marketplace-ux.github.io/marketplace-style-guides/index.html>`_.
 
 * Submit a pull request.
 
