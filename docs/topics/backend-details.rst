@@ -107,6 +107,10 @@ logs in the foreground run::
 
     fig up # Ctrl-c here will shutdown all services.
 
+.. function:: fig logs [project]
+
+View log output from a project's container.
+
 `docker` Commands
 ~~~~~~~~~~~~~~~~~
 
