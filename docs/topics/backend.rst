@@ -133,6 +133,13 @@ Run::
 
 .. note:: This can take a long time the first time.
 
+Due to `a bug <https://github.com/docker/docker-py/issues/406>`_ in `docker-py`,
+`fig build` may cause an error `hostname doesn't match 'boot2docker'`. To work
+around this:
+
+    sudo sh -c "echo $(boot2docker ip 2>/dev/null)  boot2docker >> /etc/hosts"
+    export DOCKER_HOST=tcp://boot2docker:2376
+
 Next, to run all the services run::
 
     mkt up
