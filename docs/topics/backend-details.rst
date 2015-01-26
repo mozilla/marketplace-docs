@@ -324,3 +324,5 @@ By default, the services listen to the following ports:
 +---------------------+--------+
 | Operator Dashboard  | 8679   |
 +---------------------+--------+
+| Receipt verifier    | 9000   |
++---------------------+--------+
