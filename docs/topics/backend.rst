@@ -44,6 +44,7 @@ easily using `homebrew <http://brew.sh/>`_ with the following::
     brew install caskroom/cask/brew-cask
     brew cask install virtualbox
     brew install docker boot2docker
+    boot2docker init
 
 If you're using Boot2docker once you've created the vm it will tell you how to export
 variables in your shell in order to be able to communicate with the boot2docker vm.
