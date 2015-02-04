@@ -21,6 +21,13 @@ simply run from the root of your Fireplace checkout::
 
     make package
 
+If you are building a packaged app containing an iframed Marketplace (which is
+currently running in production as of February 2015) as opposed to a true
+packaged app containing the actual Marketplace and all its assets, you'll
+instead want to run::
+
+    make iframe_package
+
 Packages will be output to `/package/builds/`. You can also make packages
 for other servers. These are pre-configured within `config.js`::
 
