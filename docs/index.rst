@@ -10,6 +10,7 @@ Related Documentation
 
 * `Firefox Marketplace API documentation <https://firefox-marketplace-api.readthedocs.org>`_
 * `Firefox Marketplace frontend documentation <https://marketplace-frontend.readthedocs.org>`_
+* `Internal Mozilla documentation <https://mana.mozilla.org/wiki/pages/viewpage.action?pageId=23954315>`_
 
 
 Contents
