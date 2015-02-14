@@ -11,7 +11,7 @@ Marketplace:
 * Set up your environment.
  * Is your bug something on the frontend (such as the consumer-facing Marketplace)?
    Then set up the :ref:`frontend`.
- * Is your bug something on the backend or payments?
+ * Is your bug something on the backend, payments, developer pages, or reviewer tools?
    Then set up the :ref:`backend`.
 
 * Work on your bug. Feel free to reach out to over Marketplace developers on `IRC in the #marketplace channel <https://wiki.mozilla.org/IRC>`_, `mailing lists <https://lists.mozilla.org/listinfo/dev-marketplace>`_, or on the bug itself.
