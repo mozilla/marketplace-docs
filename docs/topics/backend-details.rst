@@ -326,3 +326,51 @@ By default, the services listen to the following ports:
 +---------------------+--------+
 | Receipt verifier    | 9000   |
 +---------------------+--------+
+
+External services
+~~~~~~~~~~~~~~~~~
+
+The Marketplace interacts with multiple remote services that are not under the
+control of the Marketplace team.
+
++-------------------------------+-----------------+------------------+-------------+
+| Marketplace server            | Reason          | External         | Type        |
++===============================+=================+==================+=============+
+| marketplace-dev.allizom.org   | Payments        | Zippy            | Test        |
+|                               +-----------------+------------------+-------------+
+|                               | Content Ratings | IARC             | Test        |
+|                               +-----------------+------------------+-------------+
+|                               | Authentication  | Firefox Accounts | Latest      |
++-------------------------------+-----------------+------------------+-------------+
+| marketplace.allizom.org       | Payments        | Bango            | Prod        |
+|                               +-----------------+------------------+-------------+
+|                               | Payments        | Boku             | Prod        |
+|                               +-----------------+------------------+-------------+
+|                               | Content Ratings | IARC             | Test        |
+|                               +-----------------+------------------+-------------+
+|                               | Authentication  | Firefox Accounts | Prod        |
++-------------------------------+-----------------+------------------+-------------+
+| payments-alt.allizom.org      | Payments        | Bango            | Prod        |
+|                               +-----------------+------------------+-------------+
+|                               | Payments        | Boku             | Prod        |
+|                               +-----------------+------------------+-------------+
+|                               | Content Ratings | IARC             | Test        |
+|                               +-----------------+------------------+-------------+
+|                               | Authentication  | Firefox Accounts | Latest      |
++-------------------------------+-----------------+------------------+-------------+
+| marketplace.firefox.com       | Payments        | Bango            | Prod        |
+|                               +-----------------+------------------+-------------+
+|                               | Payments        | Boku             | Prod        |
+|                               +-----------------+------------------+-------------+
+|                               | Content Ratings | IARC             | Prod        |
+|                               +-----------------+------------------+-------------+
+|                               | Authentication  | Firefox Accounts | Prod        |
++-------------------------------+-----------------+------------------+-------------+
+
+Notes:
+
+* **Zippy**: is a reference implemention of the `Marketplace Payments Specification <http://marketplace-payments-specification.readthedocs.org/en/latest/>`_ to enable easy testing and development.
+* **Bango and Boku**: do not provide test instances.
+* **Boku**: uses a different set of integrator keys for different servers, please see the internal docs on mana.
+* **Firefox Accounts**: native flow on a device connects to the production Firefox
+  Accounts. The web based flow connects to the servers as noted above.
