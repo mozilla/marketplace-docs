@@ -314,6 +314,8 @@ By default, the services listen to the following ports:
 +---------------------+--------+
 | Zippy               | 2605   |
 +---------------------+--------+
+| Signing server      | 2606   |
++---------------------+--------+
 | Fireplace           | 8675   |
 +---------------------+--------+
 | Commbadge           | 8676   |

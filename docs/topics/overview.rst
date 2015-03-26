@@ -75,6 +75,10 @@ Backend
   Uses Docker and fig -
   `source <https://github.com/mozilla/marketplace-env>`_
 
+* **Signing server**: signs receipts and apps for the Marketplace. Written in
+  Python - `signing service <https://github.com/rtilder/signing-service>`_,
+  and `signing libraries <https://github.com/rtilder/websigning>`_.
+
 Frontend (Javascript)
 ~~~~~~~~~~~~~~~~~~~~~
 
