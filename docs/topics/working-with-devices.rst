@@ -15,11 +15,11 @@ Flashing the Flame
 ~~~~~~~~~~~~~~~~~~
 
 There are `base builds <https://developer.mozilla.org/Firefox_OS/Platform/Architecture>`_
-, which contains the kernel, and there are FirefoxOS builds which are run on
+(codename gonk), which contains the kernel, and there are FirefoxOS builds which are run on
 top of the base build.
 
 Flames with a base build on an old Android kernel (v123) are no longer
-supported by us. Make sure to `run with the newer v188 build <https://developer.mozilla.org/Firefox_OS/Developer_phone_guide/Flame#Updating_your_Flame%27s_software>`_.
+supported by us. Make sure to `run with the newest build <https://developer.mozilla.org/en-US/Firefox_OS/Phone_guide/Flame/Updating_your_Flame>`_.
 
 .. note::
 
