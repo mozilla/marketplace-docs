@@ -141,8 +141,6 @@ Mozilla employees).
 * `dev <https://marketplace-dev.allizom.org>`_: updated each commit.
 * `alt dev <https://marketplace-altdev.allizom.org>`_: updated each commit.
   Used for testing disruptive development features.
-* `landfill <https://landfill-mkt.allizom.org/>`_: used to populate a test
-  database which can be used with the `install landfill` command in zamboni.
 * `stage <https://marketplace.allizom.org>`_: updated when tags are made. This
   is as similar to production as possible. Used for testing features before
   they go to production. Uses real money for payments.
