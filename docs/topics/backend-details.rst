@@ -59,11 +59,15 @@ the ways down.
     Prints out the current revisions of the tress under `mkt root`
     detailing both the rev and the active branch.
 
-.. function:: mkt root [directory]
+.. function:: mkt root [directory] [--buildfrom=local|hub]
 
     Sets the location of project checkouts to `path`. Then creates a
     new configuration file. The directory can be relative and include shell
     variables such as ~.
+
+    By default marketplace builds all the docker containers locally. But you
+    can use the Docker Hub builds by setting `--buildfrom=hub`. Using the Hub
+    is faster and the container is built on each git commit.
 
 .. function:: mkt up
 
