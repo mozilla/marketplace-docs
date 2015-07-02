@@ -37,17 +37,13 @@ Requirements
 On OSX
 ~~~~~~
 
-You'll need to install Boot2docker which requires
-`Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_. You can install this
-easily using `homebrew <http://brew.sh/>`_ with the following::
+On Mac the docker libs can be installed using Mac Homebrew::
 
     brew install caskroom/cask/brew-cask
     brew cask install virtualbox
-    brew install docker boot2docker
-    boot2docker init
-
-If you're using Boot2docker once you've created the vm it will tell you how to export
-variables in your shell in order to be able to communicate with the boot2docker vm.
+    brew install docker
+    brew install docker-machine
+    brew install docker-compose
 
 On Linux
 ~~~~~~~~
@@ -65,87 +61,89 @@ Ubuntu specific is::
 2. Build dependencies
 ---------------------
 
-Get the code::
+Let's start by creating the virtual machine that our containers will be created in::
 
-    pip install marketplace-env
+    docker-machine create --driver virtualbox --virtualbox-memory 2048 mkt
 
-Do you already have all the repositories checked out?
+This creates a virtual machine using virtualbox with 2GB of RAM available named
+'mkt'.
 
-*Yes*::
+Next, execute the following command to export the environment variables::
 
-    mkt root [path to the directory containing your repositories]
+    eval "$(docker-machine env mkt)"
 
-*No*::
+Next we will checkout the code repositories needed for development. Check out
+the following repositories somewhere on your machine under the same root
+directory (e.g.: ~/sandbox/):
 
-    mkdir [path to a directory to create the repositories in]
-    mkt root [path entered in the previous command]
-    mkt whoami [your github user name]
-    mkt checkout
+  * `fireplace <https://github.com/mozilla/fireplace/>`_
+  * `solitude <https://github.com/mozilla/solitude/>`_
+  * `spartacus <https://github.com/mozilla/spartacus/>`_
+  * `webpay <https://github.com/mozilla/webpay/>`_
+  * `zamboni <https://github.com/mozilla/zamboni/>`_
+  * `zippy <https://github.com/mozilla/zippy/>`_
 
-Set two environment variables::
+Get the marketplace environment repo and set up the configuration files needed
+for docker-compose. This can live under the same directory as the above repos::
 
-    export FIG_FILE=~/.mkt.fig.yml
-    export FIG_PROJECT_NAME=mkt
+    git clone https://github.com/mozilla/marketplace-env.git
+    cd marketplace-env
+    python link-sources.py --root <repo_root_path>
 
-It is recommended that you change your environment variables in your profile so
-that they persist and are consistent.
+Set up the environment variable that `docker-compose` looks for::
 
-On OSX
-~~~~~~
+    export COMPOSE_FILE=`pwd`/docker-compose.yml
+    export COMPOSE_PROJECT_NAME=mkt  # String prepended to every container.
 
-You'll need to share the project path setup in step 2 with docker. Substitute
-[path] in the following commands with the [path] in step 2.
+It is recommended that you add these environment variables (the ones above as
+well as those provided by ``docker-machine env mkt``) in your profile so that
+they persist and are consistent.
 
-For the code shares to work on OSX you'll need to run boot2docker with the following command::
+Next add a hosts entry for mp.dev.
 
-    boot2docker up --vbox-share="$(mkt root)=trees"
+On Mac::
 
-To enable this share on the vm run::
+    sudo sh -c "echo $(docker-machine ip mkt 2>/dev/null)  mp.dev >> /etc/hosts"
 
-    boot2docker ssh "sudo mkdir -p $(mkt root) && sudo mount -t vboxsf -o uid=1000,gid=50 trees $(mkt root)"
-
-You can verify this by running::
-
-    boot2docker ssh
-    # Next navigate to /User/[username]/path/to/wharfie/trees/ and check the dirs for shared sourcecode.
-    # Then quit this ssh shell with `ctrl+c`
-
-Alternatively you can run `boot2docker up` without any args and it will share `/Users` in it's entirety.
-
-Next add a hosts entry for mp.dev (the default host).
-
-::
-
-    sudo sh -c "echo $(boot2docker ip 2>/dev/null)  mp.dev >> /etc/hosts"
-
-On Linux
-~~~~~~~~
-
-Add a hosts entry for localhost::
+On Linux::
 
     sudo sh -c "echo 127.0.0.1  mp.dev >> /etc/hosts"
 
-3. Build and run boxes
-----------------------
 
-Run::
+3. Build and run
+----------------
 
-    fig build
+Now that the marketplace github repos are cloned and linked we can start
+creating the virtual machine and docker containers.
+
+Let's pull down the docker images and build the containers::
+
+    docker-compose pull
 
 .. note:: This can take a long time the first time.
 
-Due to `a bug <https://github.com/docker/docker-py/issues/406>`_ in `docker-py`,
-`fig build` may cause an error `hostname doesn't match 'boot2docker'`. To work
-around this:
+Next, start the containers::
 
-    sudo sh -c "echo $(boot2docker ip 2>/dev/null)  boot2docker >> /etc/hosts"
-    export DOCKER_HOST=tcp://boot2docker:2376
+    docker-compose up -d
 
-Next, to run all the services run::
-
-    mkt up
+.. note:: On first run this may take a few minutes as it sets up the services,
+    creates data, and populates the search index.
 
 When everything is running open up a browser to http://mp.dev
+
+4. Shutting down and restarting
+-------------------------------
+
+On the Marketplace team we have found it good practice to shut down docker at
+the end of each work day. To do so you can run the following commands::
+
+    docker-compose stop
+    docker-machine stop mkt
+
+To start up again simply do::
+
+    docker-machine start mkt
+    docker-compose up -d
 
 Issues
 ------
