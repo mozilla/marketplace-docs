@@ -48,19 +48,23 @@ On Mac the docker libs can be installed using Mac Homebrew::
 On Linux
 ~~~~~~~~
 
-See the `different instructions <https://docs.docker.com/installation/>`_ for your distribution.
-
-The generic install curl-able script is::
+The generic (check docker link above for distribution specific) install script for docker is::
 
     curl -sSL https://get.docker.com/ | sh
+    
+Ubuntu users probably want to add ubuntu to the docker group (you need to log in and out again after)::
 
-Ubuntu specific is::
-
-    curl -sSL https://get.docker.com/ubuntu/ | sudo sh
+    sudo usermod -aG docker ubuntu
+    
+To install docker-compose::
+ 
+    sudo pip install docker-compose
 
 2. Build dependencies
 ---------------------
 
+OSX
+~~~
 Let's start by creating the virtual machine that our containers will be created in::
 
     docker-machine create --driver virtualbox --virtualbox-memory 2048 mkt
@@ -71,6 +75,9 @@ This creates a virtual machine using virtualbox with 2GB of RAM available named
 Next, execute the following command to export the environment variables::
 
     eval "$(docker-machine env mkt)"
+
+OSX and Linux
+~~~~~~~~~~~~~
 
 Next we will checkout the code repositories needed for development. Check out
 the following repositories somewhere on your machine under the same root
@@ -95,13 +102,12 @@ Set up the environment variable that `docker-compose` looks for::
     export COMPOSE_FILE=`pwd`/docker-compose.yml
     export COMPOSE_PROJECT_NAME=mkt  # String prepended to every container.
 
-It is recommended that you add these environment variables (the ones above as
-well as those provided by ``docker-machine env mkt``) in your profile so that
+It is recommended that you add these environment variables (the ones above, and for Mac OS those provided by ``docker-machine env mkt`` also) in your profile so that
 they persist and are consistent.
 
 Next add a hosts entry for mp.dev.
 
-On Mac::
+On OSX::
 
     sudo sh -c "echo $(docker-machine ip mkt 2>/dev/null)  mp.dev >> /etc/hosts"
 
@@ -135,7 +141,12 @@ When everything is running open up a browser to http://mp.dev
 -------------------------------
 
 On the Marketplace team we have found it good practice to shut down docker at
-the end of each work day. To do so you can run the following commands::
+the end of each work day.
+
+OSX
+~~~
+
+To do so you can run the following commands::
 
     docker-compose stop
     docker-machine stop mkt
@@ -143,6 +154,17 @@ the end of each work day. To do so you can run the following commands::
 To start up again simply do::
 
     docker-machine start mkt
+    docker-compose up -d
+
+Linux
+~~~~~
+
+To do so you can run the following commands::
+
+    docker-compose stop
+
+To start up again simply do::
+
     docker-compose up -d
 
 Issues
