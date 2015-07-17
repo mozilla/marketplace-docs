@@ -90,8 +90,7 @@ directory (e.g.: ~/sandbox/):
   * `zamboni <https://github.com/mozilla/zamboni/>`_
   * `zippy <https://github.com/mozilla/zippy/>`_
   
-  
-On Linux::
+In the directory where you'd like the sandbox to reside::
     mkdir sandbox; cd sandbox
     echo https://github.com/mozilla/fireplace.git https://github.com/mozilla/solitude.git https://github.com/mozilla/spartacus.git https://github.com/mozilla/webpay.git https://github.com/mozilla/zamboni.git https://github.com/mozilla/zippy.git| xargs -n 1 git clone 
 
