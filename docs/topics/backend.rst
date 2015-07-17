@@ -89,9 +89,13 @@ directory (e.g.: ~/sandbox/):
   * `webpay <https://github.com/mozilla/webpay/>`_
   * `zamboni <https://github.com/mozilla/zamboni/>`_
   * `zippy <https://github.com/mozilla/zippy/>`_
+  
+In the directory where you'd like to create the sandbox::
+    mkdir sandbox; cd sandbox
+    echo https://github.com/mozilla/fireplace.git https://github.com/mozilla/solitude.git https://github.com/mozilla/spartacus.git https://github.com/mozilla/webpay.git https://github.com/mozilla/zamboni.git https://github.com/mozilla/zippy.git| xargs -n 1 git clone 
 
 Get the marketplace environment repo and set up the configuration files needed
-for docker-compose. This can live under the same directory as the above repos::
+for docker-compose. This can live under the same sandbox directory as the above repos::
 
     git clone https://github.com/mozilla/marketplace-env.git
     cd marketplace-env
