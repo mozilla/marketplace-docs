@@ -89,6 +89,7 @@ directory (e.g.: ~/sandbox/):
   * `webpay <https://github.com/mozilla/webpay/>`_
   * `zamboni <https://github.com/mozilla/zamboni/>`_
   * `zippy <https://github.com/mozilla/zippy/>`_
+  * `solitude-auth <https://github.com/mozilla/solitude-auth/>`_
 
 Get the marketplace environment repo and set up the configuration files needed
 for docker-compose. This can live under the same directory as the above repos::
