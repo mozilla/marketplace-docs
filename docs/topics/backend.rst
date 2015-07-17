@@ -91,11 +91,11 @@ directory (e.g.: ~/sandbox/):
   * `zippy <https://github.com/mozilla/zippy/>`_
 
 Get the marketplace environment repo and set up the configuration files needed
-for docker-compose. This can live under the same directory as the above repos::
+for docker-compose. Still in the sandbox directory::
 
     git clone https://github.com/mozilla/marketplace-env.git
     cd marketplace-env
-    python link-sources.py --root <repo_root_path>
+    python link-sources.py --root $(dirname $(pwd))
 
 Set up the environment variable that `docker-compose` looks for::
 
