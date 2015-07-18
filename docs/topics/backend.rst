@@ -33,6 +33,7 @@ Requirements
 -----------------
 
 `Install Docker <https://docs.docker.com/installation/>`_.
+`Install docker-compose <https://docs.docker.com/compose/install/>`_.
 
 On OSX
 ~~~~~~
