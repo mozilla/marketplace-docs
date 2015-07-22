@@ -154,7 +154,7 @@ To do so you can run the following commands::
 To start up again simply do::
 
     docker-machine start mkt
-    docker-compose up -d
+    docker-compose start -d
 
 Linux
 ~~~~~
@@ -165,7 +165,7 @@ To do so you can run the following commands::
 
 To start up again simply do::
 
-    docker-compose up -d
+    docker-compose start -d
 
 Issues
 ------
