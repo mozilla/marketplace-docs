@@ -85,6 +85,7 @@ directory (e.g.: ~/sandbox/):
 
   * `fireplace <https://github.com/mozilla/fireplace/>`_
   * `solitude <https://github.com/mozilla/solitude/>`_
+  * `solitude-auth <https://github.com/mozilla/solitude-auth/>`_
   * `spartacus <https://github.com/mozilla/spartacus/>`_
   * `webpay <https://github.com/mozilla/webpay/>`_
   * `zamboni <https://github.com/mozilla/zamboni/>`_
