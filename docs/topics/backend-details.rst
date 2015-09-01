@@ -58,12 +58,13 @@ run a command, e.g.::
 How do I update python/node package deps (rebuild the container)?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. First [stop the machine](https://marketplace.readthedocs.org/en/latest/topics/backend.html#shutting-down-and-restarting) with your OS-specific instructions.
+1. First `stop the machine <https://marketplace.readthedocs.org/en/latest/topics/backend.html#shutting-down-and-restarting>`_ with your OS-specific instructions.
+
 2. Then pull the newest images from Docker Hub:
 
   docker-compose pull [project]
 
-3. Then [start the machine](https://marketplace.readthedocs.org/en/latest/topics/backend.html#shutting-down-and-restarting) with your OS-specific instructions.
+3. Then `start the machine <https://marketplace.readthedocs.org/en/latest/topics/backend.html#shutting-down-and-restarting>`_ with your OS-specific instructions.
 
 How do I add an admin in Zamboni with docker?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
