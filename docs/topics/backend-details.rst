@@ -58,17 +58,12 @@ run a command, e.g.::
 How do I update python/node package deps (rebuild the container)?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This command is an example for zamboni. If deps have changed they will be installed::
+1. First [stop the machine](https://marketplace.readthedocs.org/en/latest/topics/backend.html#shutting-down-and-restarting) with your OS-specific instructions.
+2. Then pull the newest images from Docker Hub:
 
-  docker-compose build [project]
+  docker-compose pull [project]
 
-E.g (for zippy)::
-
-  docker-compose build zippy
-
-For all projects::
-
-  docker-compose build
+3. Then [start the machine](https://marketplace.readthedocs.org/en/latest/topics/backend.html#shutting-down-and-restarting) with your OS-specific instructions.
 
 How do I add an admin in Zamboni with docker?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
