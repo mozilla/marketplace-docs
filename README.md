@@ -6,7 +6,7 @@ High-level documentation for the Firefox Marketplace. Hosted at
 Other Marketplace documentation repositories include:
 
 - [Marketplace high-level documentation](https://github.com/mozilla/marketplace-docs)
-- [Marketplace API documentation](https://github.com/mozilla/zamboni/tree/docs/api)
+- [Marketplace API documentation](https://github.com/mozilla/zamboni/tree/master/docs/api)
 - [Marketplace legal documents](https://github.com/mozilla/legal-docs)
 
 # Building the Documentation
